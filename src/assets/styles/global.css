@@ -247,6 +247,59 @@ cite {
     }
 }
 
+/* interactions */
+
+[class|='button'] {
+    padding: 0.65em 1em;
+    font-size: var(--fs-p);
+    font-family: var(--ff-heading);
+    line-height: 1;
+    position: relative;
+    text-decoration: none;
+    margin: 0.5em;
+    display: inline-block;
+    cursor: pointer;
+    background-color: var(--clr-secondary);
+    border: solid 2px var(--clr-secondary);
+    color: var(--clr-primary);
+    overflow: hidden;
+    z-index: 1;
+    transform: scale(1);
+    filter: brightness(1);
+    transition: transform ease-in 0.125s, filter ease-in 0.125s;
+
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 135%;
+        height: 100%;
+        clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+        aspect-ratio: 1 / 1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: transform ease-in 0.25s;
+        transform: translate(-110%, 0%);
+        background-color: var(--clr-white);
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        filter: brightness(1);
+
+        &::before {
+            transform: translate(0, 0) scale(2);
+        }
+    }
+
+    &:active {
+        transform: scale(0.95);
+        filter: brightness(0.98);
+    }
+}
+
 /* footer */
 footer {
     border-top: 1px solid var(--clr-primary);
