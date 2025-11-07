@@ -11,9 +11,8 @@ import { Image } from "astro:assets";
       <Image src={logo} alt="Adam Snape Creative Services Logo" loading="eager" width={100} />
       <h2 class="h1">Adam Snape</h2>
     </div>
+    <div class="sticker"><p>Bespoke solutions for small independent businesses.</p></div>
   </div>
-
-  <div class="sticker"><p>Bespoke solutions for small independent businesses.</p></div>
 </div>
 
 <style>
@@ -21,8 +20,6 @@ import { Image } from "astro:assets";
     background-color: var(--clr-primary);
     color: var(--clr-white);
     padding: 4rem 0;
-    position: relative;
-    overflow-x: hidden;
 
     & hr {
       border: 2px solid var(--clr-white);
@@ -32,6 +29,10 @@ import { Image } from "astro:assets";
     & img {
       height: var(--fs-h1);
       width: auto;
+    }
+
+    & .max-width {
+      position: relative;
     }
   }
 
@@ -67,8 +68,8 @@ import { Image } from "astro:assets";
     box-shadow: 0 0 2px rgb(0 0 0 / 0.3);
     position: absolute;
     font-size: var(--fs-xs);
-    right: 4vw;
-    top: 30%;
+    right: 0vw;
+    top: 35%;
 
     &::after {
       content: "";
@@ -90,7 +91,7 @@ import { Image } from "astro:assets";
   @media screen and (width > 560px) {
     .sticker {
       font-size: var(--fs-s);
-      right: 5vw;
+      right: 0;
       top: 5%;
     }
   }
