@@ -1,11 +1,80 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { IconApi, IconApiApp, IconBrandAdobeIllustrator, IconBrandAdobePhotoshop, IconBrandAstro, IconBrandCss3, IconBrandFlipboard, IconBrandHtml5, IconBrandReact, IconBrandShopee } from "@tabler/icons-react";
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import TextBlock from "../layouts/TextBlock.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <Hero />
+  <TextBlock title="1.1 about me" img="/media/avatar.jpg">
+    <p>Hello, Hola, Bonjour. I'm Adam, a freelance visual identity designer and web developer based in t'hills of the Peak District.</p>
+    <p>I work with independent businesses to find their voice and express it through strategic design and modern technologies.</p>
+
+    <p>
+      Your brand should feel like <i>you</i>, and by working together, we can uncover the heart of your brand. From the logo and colour palette to the way you speak to your customers, everything should work together to make a clear and memorable impression. I&rsquo;ll help you shape that identity so
+      it feels natural, professional, and ready to grow.
+    </p>
+    <p>
+      We can then bring all our learnings to life online. I design and build websites that don&rsquo;t just look great, but actually help your business thrive. Using modern best practise for sites that are fast, easy to update, and built to attract your ideal customer. Whether you need a simple
+      business site or a full e-commerce setup, I&rsquo;ll make sure it works for you and your customers.
+    </p>
+    <p>If you&rsquo;re ready to give your brand a clearer voice and a stronger online presence, I&rsquo;d love to chat and see how we can make it happen.</p>
+  </TextBlock>
+  <TextBlock title="1.2 my skills">
+    <div class="skills-grid">
+      <div class="skills"><IconBrandAdobeIllustrator stroke={1} /></div>
+      <div class="skills"><IconBrandAdobePhotoshop stroke={1} /></div>
+      <div class="skills"><IconBrandHtml5 stroke={1} /></div>
+      <div class="skills"><IconBrandCss3 stroke={1} /></div>
+      <div class="skills"><IconBrandAstro stroke={1} /></div>
+      <div class="skills"><IconBrandFlipboard stroke={1} /></div>
+      <!-- <div class="skills"><IconApi stroke={1} /></div> -->
+      <div class="skills"><IconBrandReact stroke={1} /></div>
+      <div class="skills"><IconBrandShopee stroke={1} /></div>
+    </div>
+  </TextBlock>
+  <TextBlock title="i) quote">
+    <blockquote>
+      The alternative to good design is bad design. There is no such thing as no design.
+      <cite>Adam Judge</cite>
+    </blockquote>
+  </TextBlock>
+  <TextBlock title="2.1 previous works">
+    <div class="previous-work--grid">
+      <div class="work"><img src="/media/kingsway-cars.webp" alt="Kingsway Cars Branding" /><p>Kingsway Cars</p></div>
+      <div class="work"><img src="/media/so-counties.webp" alt="Co Counties Branding" /><p>So Cheshire</p></div>
+      <div class="work"><img src="/media/snapeandsons.webp" alt="Snape & Sons Branding" /><p>Snape & Sons</p></div>
+      <div class="work"><img src="/media/khosh.webp" alt="Khosh Clothing Branding" /><p>Khosh Clothing</p></div>
+    </div>
+  </TextBlock>
 </Layout>
+
+<style>
+  .skills-grid {
+    column-span: all;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .skills svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .tabler-icon-brand-flipboard {
+    rotate: 90deg;
+  }
+  .work {
+    margin-bottom: 2rem;
+
+    & p {
+      border-top: 1px solid;
+      margin-top: 0.5rem;
+    }
+  }
+</style>

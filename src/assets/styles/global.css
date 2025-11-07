@@ -1,0 +1,279 @@
+@font-face {
+    font-display: swap;
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/IBMPlexMono-Regular') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'IBM Plex Mono';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/IBMPlexMono-Italic') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/IBMPlexMono-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'IBM Plex Mono';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../fonts/IBMPlexMono-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/SpaceGrotesk-Bold.woff2') format('woff2');
+}
+
+:root {
+    isolation: isolate;
+
+    --clr-primary: #1D37B5;
+    --clr-secondary: #00FFD4;
+    --clr-accent: #FF0059;
+
+    --clr-white: #F5F5F5;
+    --clr-black: #030A2B;
+
+    --clr-success: #9BEB50;
+    --clr-warning: #FFD037;
+    --clr-error: #FF0059;
+    --clr-info: #7209B7;
+
+    --fs-xs: clamp(0.61rem, -0.08vi + 0.63rem, 0.56rem);
+    --fs-s: clamp(0.73rem, 0.04vi + 0.72rem, 0.75rem);
+    --fs-p: clamp(0.88rem, 0.22vi + 0.82rem, 1rem);
+    --fs-h3: clamp(1.05rem, 0.5vi + 0.93rem, 1.33rem);
+    --fs-h2: clamp(1.26rem, 0.91vi + 1.05rem, 1.78rem);
+    --fs-h1: clamp(1.81rem, 2.37vi + 1.26rem, 3.16rem);
+
+    --ff-body: "IBM Plex Mono", 'Courier New', Courier, monospace;
+    --ff-heading: "Space Grotesk", Helvetica, Arial, sans-serif;
+}
+
+/* GLOBAL */
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: var(--ff-body), system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--clr-primary);
+    background-color: var(--clr-white);
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+[hidden] {
+    display: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.max-width {
+    width: min(80vw, 1280px);
+    margin: 0 auto;
+}
+
+
+/* TEXT */
+
+h1,
+.h1,
+.display {
+    font-family: var(--ff-heading);
+    font-weight: 700;
+    letter-spacing: -0.05ch;
+    margin-top: 0;
+}
+
+h1,
+.h1 {
+    font-size: var(--fs-h1);
+}
+
+h2,
+.h2 {
+    font-style: normal;
+    font-size: var(--fs-h2);
+    font-weight: 400;
+}
+
+h3,
+.h3 {
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fs-h3);
+}
+
+h4,
+.h4 {
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fs-p);
+}
+
+.heading {
+    border-block: 1px solid var(--clr-accent);
+    color: var(--clr-accent);
+    margin: 0;
+}
+
+.rtf,
+p {
+    line-height: 1.6;
+    color: #1D37B5;
+}
+
+.rtf {
+    columns: 40ch;
+    column-gap: 3rem;
+
+    & p {
+        break-inside: avoid;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+a {
+    color: var(--clr-accent);
+    text-decoration-color: var(--clr-secondary);
+    text-decoration-thickness: 2px;
+    font-style: italic;
+    transition: color 0.1s ease-out;
+    position: relative;
+
+
+    &:hover {
+        color: var(--clr-primary);
+
+        &::before {
+            width: 105%;
+            width: calc(100% + 1ch);
+        }
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        background: var(--clr-secondary);
+        width: 0%;
+        margin-left: -0.5ch;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        transition: width 0.1s ease-out;
+    }
+
+
+}
+
+blockquote {
+    font-size: var(--fs-h2);
+    font-style: italic;
+    line-height: 1;
+    position: relative;
+    column-span: all;
+    margin-inline: 2rem;
+
+    &::before {
+        content: "\"";
+        font-family: var(--ff-heading);
+        font-size: calc(var(--fs-h1) * 2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-75%, -25%);
+        opacity: 0.3;
+
+    }
+}
+
+cite {
+    font-size: var(--fs-s);
+    display: block;
+    margin: 1rem 2rem;
+    text-align: right;
+
+    &::before {
+        content: "- "
+    }
+}
+
+/* footer */
+footer {
+    border-top: 1px solid var(--clr-primary);
+    padding-top: 3rem;
+    margin: 3rem 0 6rem;
+
+    & img {
+        max-height: 5.2rem;
+    }
+
+    & .max-width {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 3rem;
+    }
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 2.6rem;
+}
+
+.footer-right {
+    & * {
+        font-size: var(--fs-s);
+    }
+}

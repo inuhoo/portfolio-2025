@@ -1,0 +1,50 @@
+---
+const { title, img } = Astro.props;
+---
+
+<div class="page-section max-width">
+  <div class="heading-wrapper">
+    <h2 class="h4 heading">{title}</h2>
+    {img && <img src={img} alt={title} class="textblock-image" />}
+  </div>
+  <div class="content rtf">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .page-section {
+    border-top: 1px solid var(--clr-primary);
+    margin: 2rem auto;
+    align-items: start;
+
+    & .heading-wrapper {
+      flex: 1 0 auto;
+      min-width: 20vw;
+      & .heading {
+        border-top: none;
+        line-height: 1.6;
+        color: var(--clr-primary);
+        border-color: var(--clr-primary);
+      }
+    }
+
+    & .content {
+      padding-top: 0.5rem;
+    }
+  }
+
+  @media screen and (width > 599px) {
+    .page-section {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 3rem;
+    }
+  }
+
+  img {
+    filter: grayscale(1);
+    margin: 1rem 0 1rem auto;
+    width: max(20vw, 350px);
+  }
+</style>
