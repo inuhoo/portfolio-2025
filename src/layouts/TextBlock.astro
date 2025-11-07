@@ -1,11 +1,12 @@
 ---
 const { title, img } = Astro.props;
+import { Image } from "astro:assets";
 ---
 
 <div class="page-section max-width">
   <div class="heading-wrapper">
     <h2 class="h4 heading">{title}</h2>
-    {img && <img src={img} alt={title} class="textblock-image" />}
+    {img && <Image src={img} alt={title + " image"} class="textblock-image" layout="constrained" widths={[320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
   </div>
   <div class="content rtf">
     <slot />

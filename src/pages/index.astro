@@ -1,8 +1,9 @@
 ---
-import { IconApi, IconApiApp, IconBrandAdobeIllustrator, IconBrandAdobePhotoshop, IconBrandAstro, IconBrandCss3, IconBrandFlipboard, IconBrandHtml5, IconBrandReact, IconBrandShopee } from "@tabler/icons-react";
+import { IconBrandAdobeIllustrator, IconBrandAdobePhotoshop, IconBrandAstro, IconBrandCss3, IconBrandFlipboard, IconBrandHtml5, IconBrandReact, IconBrandShopee } from "@tabler/icons-react";
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import TextBlock from "../layouts/TextBlock.astro";
+import avatar from "../assets/media/avatar.jpg";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -10,7 +11,7 @@ import TextBlock from "../layouts/TextBlock.astro";
 
 <Layout>
   <Hero />
-  <TextBlock title="1.1 about me" img="/media/avatar.jpg">
+  <TextBlock title="1.1 about me" img={avatar}>
     <p>Hello, Hola, Bonjour. I'm Adam, a freelance visual identity designer and web developer based in t'hills of the Peak District.</p>
     <p>I work with independent businesses to find their voice and express it through strategic design and modern technologies.</p>
 
@@ -46,10 +47,22 @@ import TextBlock from "../layouts/TextBlock.astro";
   </TextBlock>
   <TextBlock title="2.1 previous works">
     <div class="previous-work--grid">
-      <div class="work"><img src="/media/kingsway-cars.webp" alt="Kingsway Cars Branding" /><p>Kingsway Cars</p></div>
-      <div class="work"><img src="/media/so-counties.webp" alt="Co Counties Branding" /><p>So Cheshire</p></div>
-      <div class="work"><img src="/media/snapeandsons.webp" alt="Snape & Sons Branding" /><p>Snape & Sons</p></div>
-      <div class="work"><img src="/media/khosh.webp" alt="Khosh Clothing Branding" /><p>Khosh Clothing</p></div>
+      <div class="work">
+        <img src="/media/kingsway-cars.webp" alt="Kingsway Cars Branding" loading="lazy" />
+        <p>Kingsway Cars</p>
+      </div>
+      <div class="work">
+        <img src="/media/so-counties.webp" alt="Co Counties Branding" loading="lazy" />
+        <p>So Cheshire</p>
+      </div>
+      <div class="work">
+        <img src="/media/snapeandsons.webp" alt="Snape & Sons Branding" loading="lazy" />
+        <p>Snape & Sons</p>
+      </div>
+      <div class="work">
+        <img src="/media/khosh.webp" alt="Khosh Clothing Branding" loading="lazy" />
+        <p>Khosh Clothing</p>
+      </div>
     </div>
   </TextBlock>
 </Layout>
