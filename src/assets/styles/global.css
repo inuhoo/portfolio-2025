@@ -121,6 +121,11 @@ svg {
     margin: 0 auto;
 }
 
+.right {
+    text-align: right;
+    float: right;
+}
+
 
 /* TEXT */
 
@@ -253,6 +258,8 @@ cite {
 
 [class|='button'] {
     padding: 0.65em 1em;
+    border-radius: 100px;
+    corner-shape: squircle;
     font-size: var(--fs-p);
     font-family: var(--ff-heading);
     font-style: italic;
