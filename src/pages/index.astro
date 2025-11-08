@@ -3,6 +3,7 @@ import { IconBrandAdobeIllustrator, IconBrandAdobePhotoshop, IconBrandAstro, Ico
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import TextBlock from "../layouts/TextBlock.astro";
+import ContactForm from "../components/ContactForm.astro";
 import avatar from "../assets/media/avatar.jpg";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -24,7 +25,7 @@ import avatar from "../assets/media/avatar.jpg";
       business site or a full e-commerce setup, I&rsquo;ll make sure it works for you and your customers.
     </p>
     <p>If you&rsquo;re ready to give your brand a clearer voice and a stronger online presence, I&rsquo;d love to chat and see how we can make it happen.</p>
-    <a href="mailto:adam@snape.xyz" class="button-primary">get in touch</a>
+    <a href="#contact-form" class="button-primary">get in touch</a>
   </TextBlock>
   <TextBlock title="1.2 my skills">
     <div class="skills-grid">
@@ -64,6 +65,9 @@ import avatar from "../assets/media/avatar.jpg";
         <p>Khosh Clothing</p>
       </div>
     </div>
+  </TextBlock>
+  <TextBlock title="3.1 contact me">
+    <ContactForm />
   </TextBlock>
 </Layout>
 

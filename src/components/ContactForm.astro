@@ -1,0 +1,119 @@
+<form name="contact" method="POST" netlify netlify-honeypot="bot-field" id="contact-form">
+  <input type="hidden" name="form-name" value="contact" />
+
+  <label
+    >Your Name: <div class="input-wrapper">
+      <input type="text" name="name" required placeholder="name" />
+      <div class="cursor">|</div>
+    </div>
+  </label>
+  <label
+    >Your Email: <div class="input-wrapper">
+      <input type="email" name="email" required placeholder="email" />
+      <div class="cursor">|</div>
+    </div>
+  </label>
+  <label
+    >Message: <div class="input-wrapper">
+      <textarea name="message" required rows="4" placeholder="message"></textarea>
+      <div class="cursor">|</div>
+    </div>
+  </label>
+
+  <button type="submit" class="button-primary">send message</button>
+
+  <p id="form-status"></p>
+</form>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData).toString();
+
+    status.textContent = "Sending...";
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: data,
+      });
+
+      if (response.ok) {
+        form.reset();
+        status.textContent = "✅ Message sent successfully!";
+      } else {
+        status.textContent = "❌ Something went wrong. Please try again.";
+      }
+    } catch (error) {
+      status.textContent = "❌ Network error. Please try again later.";
+    }
+  });
+</script>
+
+<style>
+  label {
+    display: block;
+    width: 100%;
+    border-block: 1px solid;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+
+    &:first-child {
+      border-top: none;
+      margin-top: 0;
+    }
+
+    & input,
+    & textarea {
+      width: 100%;
+    }
+  }
+
+  .input-wrapper {
+    display: grid;
+
+    & > * {
+      grid-area: 1 / 1;
+    }
+  }
+
+  .cursor {
+    animation: blink 1s linear infinite;
+  }
+
+  @keyframes blink {
+    50%,
+    99% {
+      opacity: 0;
+    }
+    49% {
+      opacity: 1;
+    }
+  }
+
+  input,
+  textarea {
+    background: transparent;
+    border: none;
+    font-family: var(--ff-body);
+
+    &:focus + .cursor,
+    &:not(:placeholder-shown) ~ .cursor {
+      visibility: hidden;
+    }
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  textarea {
+    height: 6.4rem;
+  }
+</style>
