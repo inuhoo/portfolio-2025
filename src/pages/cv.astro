@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import TextBlock from "../components/TextBlock.astro";
+import CvExperience from "../components/CvExperience.astro";
+import avatar from "../assets/media/avatar.jpg";
+---
+
+<Layout>
+  <Header title="Curriculum Vitae" subtitle="Adam Snape | Design, Developer and E-commerce Specialist" />
+  <TextBlock title="Profile Summary" img={avatar}>
+    <p>
+      A motivated and seasoned e-commerce specialist and frontend developer with a strong track record in the retail sector. With over 12 months experience working as a dedicated developer in fashion retail, I also have another 4+ years of experience in directing and executing growth strategies for
+      a direct-to-consumer (DTC) home and garden e-commerce brand.
+    </p>
+    <p>
+      An experienced team player who wishes to grow and progress faster, by leveraging expertise in e-commerce operations, analytics and a strong understanding of UX to drive growth for businesses. With experience of building customer-centric brands, and improving engagement and efficiency through
+      the application of effective procedures, through strategic planning and data-driven decision-making, and the development of internal tooling and integrations.
+    </p>
+    <p>I am resilient, able to work under my own initiative with a strength to carry projects from start to finish. Always working as part of a team, I am an engaging communicator with a proven talent of solving problems through strong &amp; decisive action.</p>
+  </TextBlock>
+  <TextBlock title="Skills">
+    <h3>Technical Skills</h3>
+    <ul>
+      <li aria-level="1">Programming</li>
+      <ul>
+        <li aria-level="2">Javascript</li>
+        <li aria-level="2">HTML5</li>
+        <li aria-level="2">CSS3</li>
+        <li aria-level="2">Shopify Liquid</li>
+        <li aria-level="2">Git / Shopify CLI</li>
+      </ul>
+      <li aria-level="1">Web Design</li>
+      <li aria-level="1">Microsoft Office - Word &amp; Excel</li>
+      <li aria-level="1">Adobe Photoshop</li>
+      <li aria-level="1">Shopify</li>
+      <li aria-level="1">Email Marketing (Klaviyo)</li>
+      <li aria-level="1">Linnworks</li>
+      <li aria-level="1">Google Ads</li>
+      <li aria-level="1">Google Merchant Center</li>
+      <li aria-level="1">Warehousing</li>
+      <li aria-level="1">Amazon Seller Central&nbsp;</li>
+      <li aria-level="1">Buying/Sales/Operations</li>
+    </ul>
+    <h3>Personal Skills</h3>
+    <ul>
+      <li>Programming</li>
+      <ul>
+        <li>Javascript</li>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>Shopify Liquid</li>
+        <li>Git / Shopify CLI</li>
+      </ul>
+      <li>Web Design</li>
+      <li>Microsoft Office - Word &amp; Excel</li>
+      <li>Adobe Photoshop</li>
+      <li>Linnworks</li>
+      <li>Shopify</li>
+      <li>Google Ads</li>
+      <li>Google Merchant Center</li>
+      <li>Email Marketing (Klaviyo)</li>
+      <li>Warehousing</li>
+      <li>Amazon Seller Central&nbsp;</li>
+      <li>Buying/Sales/Operations</li>
+    </ul>
+  </TextBlock>
+  <TextBlock title="Experience">
+    <CvExperience
+      company="The Gym King"
+      role="Shopify Web Developer"
+      date="June 2024 - present"
+      description="<ul><li>Leveraging KPI analysis to inform and implement A/B testing strategies aimed at improving UX and boosting conversion rates. This drove a 50%+ increase in add-to-cart rates and improved conversion rates by over 35% year-on-year.</li><br><li>Created and deployed a custom Shopify app that tracks the discount percentages off all products in the store by updating a metafield automatically. This allows us to offer sale related filtering in smart collections and customer PLP filters.</li><br><li>Played a key role in reducing site wide average page load times from ~4 seconds to under 2.4 seconds on average.</li><br><li>Led the frontend development and was part of technical integration team for the newly launched, dedicated B2B wholesale store — developing custom features like customer-specific credit limits, payment terms, and pro forma ordering for independent retail partners.</li></ul>"
+    />
+    <CvExperience
+      company="Snape & Sons"
+      role="Director of Operations and e-Commerce"
+      date="March 2020 - June 2024"
+      description="<ul><li>Successfully designed, developed, and launched an e-commerce store for the family business, achieving an impressive projected revenue increase of over £400k in the current year, on track to surpass £1m in the next twelve months.</li><br><li>Redesigned and rebuilt from scratch the company's e-commerce website on Shopify 2.0, eliminating the need for four third-party apps and saving over £150 per month while improving website speed scores by over 100%.</li><br><li>Managed the integration of multiple software and services, including in-store ePOS, inventory systems, online order management, and the website.</li><br><li>Developed and implemented internal tools and automation to streamline processes, analyse data, and optimise efficiency.</li><br><li>Gained in-depth knowledge of product offerings, demand and supply, inventory management, and distribution processes.</li><br><li>Continuously enhanced online offerings, integrating proven marketing solutions to optimise online sales.</li><br><li>Produced accurate e-commerce budgets to support sales strategy execution and minimise cost risks.</li><br><li>Tracked consumer behaviour and implemented content management strategies to drive customer acquisition and retention.</li><br></ul>"
+    />
+    <CvExperience
+      company="Snape & Sons"
+      role="Sales and Marketing Manager"
+      date="November 2014 - March 2020"
+      description="<ul><li>Developed comprehensive sales and marketing plans with short- and long-term objectives.</li><br><li>Established effective communication channels, executed strategic initiatives, and fostered valuable relationships with key partners and markets.</li><br><li>Assumed leadership of the company's marketing initiatives, including project management and sales system training.</li><br><li>Streamlined operations and improved throughput through continuous improvement and cross-functional collaboration.</li><br></ul>"
+    />
+    <CvExperience
+      company="Snapes Estate Agents"
+      role="Sales Negotiator & Domestic Energy Assessor"
+      date="April 2009 - April 2015"
+      description="<ul><li>Presented with the diploma required to become a domestic energy assessor (DEA) for real estates in the UK. This achievement resulted in me being able to carry out accurate energy assessment surveys on homes, registering the results into a controlled UK governing body system. EPC reports remain a legal requirement when selling or renting homes.</li><br><li>Managed all vendors and subsequent property listings/marketing</li><br><li>Face to face communication, creating compelling pitches for property viewings and open days</li><br><li>Inputted accurate EPC energy assessment information</li><br><li>Responsible for all customer correspondence (email/telephone)</li><br><li>Accomplished in full house sale stages including final offers and paperwork</li><br><li>Completed marketing surveys of all the properties - taking and processing images, generating accurate floor-plans</li><br><li>Generated creative design work for company brochures, window cards and digital displays</li><br></ul>"
+    />
+    <CvExperience
+      company="Adam Snape Creative Services"
+      role="Visual Identity Designer"
+      date="October 2014 - Present"
+      description="<ul><li>Created a successful brand logo change for local business, Kingsway Cars. A private hire company that has since grown substantially to become one of the largest private hire firms in South Manchester.</li><br><li>Established & led a successful business delivering a year-on-year improvement on all key financial performance measures</li><br><li>Lead information gathering consultation meetings with various clients to determine marketing goals and available budget</li><br><li>Collaborate closely with clients and various external teams to achieve the customers vision and marketing objectives</li><br><li>Manage the full end to end process of brand strategy from concept, to design, through to effective measurement and insight of campaign success</li><br><li>Continual demonstration of a high work ethic, consistently meeting challenging deadlines with the ability to deliver multiple sizes and formats</li><br></ul>"
+    />
+  </TextBlock>
+  <TextBlock title="Education">
+    <CvExperience company="Macclesfield College" role="(2009 - 2010)" date="Level 3 Diploma in Foundation Studies: Art & Design (Post A Level)" />
+    <CvExperience company="The Kings School" role="(2007 - 2009)" date="A-Level: Physics, Maths and Computing | AS-Level: Product, Design and Technology" />
+    <CvExperience company="Hulme Hall Grammar School" role="(2002 - 2007)" date="11 x GCSE’s including Science, Maths and English (A’s)" />
+  </TextBlock>
+  <TextBlock title="Education">
+    <ul>
+      <li>
+        From a standing start I was able to garner a 50%+ increase in add-to-cart rates, and improved overall average conversion rates by over 35% year-on-year. This was achieved by building out the required analytic KPI tracking combined with CRO and frontend development led by best practices and
+        A/B testing.
+      </li><br />
+      <li>
+        Delivered a new brand identity for Snape &amp; Sons. Through carefully defined objectives and KPI&rsquo;s, the business realised a 20% increase in revenue. Strategy, design, and execution was at the heart of what was an undoubted success. Initiated further benefits including a loyalty card
+        scheme which tracks customers and rewards repeat business.
+      </li><br />
+      <li>
+        Within the competitive and challenging real estate market, I took responsibility for the sale of property which, despite various sales strategies, had remained on the market for a significant period. Through careful planning in both marketing and pricing positions I achieved a profitable
+        sale on the property, managing the project through to completion. A proud achievement as it was both my first sale and a notoriously difficult assignment.
+      </li><br />
+    </ul>
+  </TextBlock>
+  <TextBlock title="Personal Interests">
+    <ul>
+      <li>Photography</li>
+      <li>Graphic Design</li>
+      <li>Premier League</li>
+      <li>WRC</li>
+      <li>Golf</li>
+      <li>Hiking</li>
+    </ul>
+  </TextBlock>
+</Layout>
