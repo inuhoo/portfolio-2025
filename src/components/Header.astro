@@ -9,19 +9,21 @@ import { Image } from "astro:assets";
     <h1>{title}</h1>
     <p>{subtitle}</p>
   </div>
-  <Image src={logo} alt="Adam Snape Creative Services Logo" loading="eager" width={80} densities={[1, 2]} />
-</header>
+  <a href="/" alt="adamsnape.com homepage" class="no-effect">
+    <Image src={logo} alt=" Adam Snape Creative Services Logo" loading="eager" width={80} densities={[1, 2]} />
+  </a>
 
-<style>
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem auto 5rem;
+  <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 2rem auto 5rem;
 
-    & h1,
-    & p {
-      margin: 0 0 -0.75rem;
+      & h1,
+      & p {
+        margin: 0 0;
+      }
     }
-  }
-</style>
+  </style>
+</header>
