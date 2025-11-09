@@ -5,6 +5,11 @@ import Layout from "../layouts/Layout.astro";
 import TextBlock from "../components/TextBlock.astro";
 import ContactForm from "../components/ContactForm.astro";
 import avatar from "../assets/media/avatar.jpg";
+import { Image } from "astro:assets";
+import khosh from "../assets/media/khosh.webp";
+import kingsway from "../assets/media/kingsway.webp";
+import snapes from "../assets/media/snapes.webp";
+import socounties from "../assets/media/so-counties.webp";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -58,19 +63,19 @@ import avatar from "../assets/media/avatar.jpg";
   <TextBlock title="2.1 previous works">
     <div class="previous-work--grid">
       <div class="work">
-        <img src="/media/kingsway-cars.webp" alt="Kingsway Cars Branding" loading="lazy" />
+        <Image src={kingsway} alt="Kingsway Cars Branding Project" loading="lazy" densities={[1, 2]} />
         <p>Kingsway Cars</p>
       </div>
       <div class="work">
-        <img src="/media/so-counties.webp" alt="Co Counties Branding" loading="lazy" />
+        <Image src={socounties} alt="So Counties Branding Project" loading="lazy" densities={[1, 2]} />
         <p>So Cheshire</p>
       </div>
       <div class="work">
-        <img src="/media/snapeandsons.webp" alt="Snape & Sons Branding" loading="lazy" />
+        <Image src={snapes} alt="Snape & Sons Branding Project" loading="lazy" densities={[1, 2]} />
         <p>Snape & Sons</p>
       </div>
       <div class="work">
-        <img src="/media/khosh.webp" alt="Khosh Clothing Branding" loading="lazy" />
+        <Image src={khosh} alt="Khosh Clothing Branding Project" loading="lazy" densities={[1, 2]} />
         <p>Khosh Clothing</p>
       </div>
     </div>
