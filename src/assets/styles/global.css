@@ -142,6 +142,7 @@ h1,
 h1,
 .h1 {
     font-size: var(--fs-h1);
+    line-height: 1.1;
 }
 
 h2,

@@ -20,6 +20,7 @@ import { Image } from "astro:assets";
     background-color: var(--clr-primary);
     color: var(--clr-white);
     padding: 4rem 0;
+    overflow: hidden;
 
     & hr {
       border: 2px solid var(--clr-white);
@@ -68,8 +69,11 @@ import { Image } from "astro:assets";
     box-shadow: 0 0 2px rgb(0 0 0 / 0.3);
     position: absolute;
     font-size: var(--fs-xs);
-    right: 0vw;
-    top: 35%;
+    right: -5vw;
+    top: 30%;
+    transition:
+      top 0.1s ease,
+      right 0.1s ease;
 
     &::after {
       content: "";
