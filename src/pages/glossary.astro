@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import TextBlock from "../components/TextBlock.astro";
+import GlossaryEntry from "../components/GlossaryEntry.astro";
+---
+
+<Layout>
+  <!-- header -->
+  <Header title="Glossary" subtitle="Jargon. Busted." />
+  <TextBlock title="intro">
+    <p>
+      The clarity of your communication is directly linked to the success of any project or collaboration. <br />
+    </p>
+    <p>This reference is growing list of definitions to common design and branding terms.</p>
+    <blockquote>
+      It’s a lack of clarity that creates chaos and frustration. Those emotions are poison to any living goal.
+      <cite>Steve Maraboli</cite>
+    </blockquote>
+  </TextBlock>
+
+  <TextBlock title="B">
+    <GlossaryEntry
+      word="Brand"
+      phonics="/brand/"
+      type="noun"
+      definition="<p>The overall experience felt by a customer during any interaction with an organisation and the perceptions they are left with.</p><p>Brands are often built strategically by designing each touchpoint with the aim of defining a unique and consistent experience every time a customer should come in to contact with the organisation.</p>"
+    />
+    <GlossaryEntry word="Brand Identity" phonics="/brand/-/ʌɪˈdɛntɪti/" type="noun" definition="<p>TA visual representation of a brand. </p><p>Usually constructed around a unique icon, symbol or logotype. Used to visually display a brand in a recognisable and consistent way.</p>" />
+    <GlossaryEntry word="Brand Strategy" phonics="/brand/-/ˈstratɪdʒi/" type="noun" definition="<p>A plan of action based on the findings of a discovery session, used to help achieve company goals by influencing consumers preconception and expectations of the brand.</p>" />
+  </TextBlock>
+
+  <TextBlock title="D">
+    <GlossaryEntry word="Deck" phonics="/dɛk/" type="noun" definition="<p>A document made up from a series of pages or slides used as a visual aid that can be used in coordination with an oral presentation.</p>" />
+    <GlossaryEntry
+      word="Discovery"
+      phonics="/dɪˈskʌv(ə)ri/ "
+      type="noun"
+      definition="<p>The process of examination used to better understand a brands role and position in its marketplace and gain insights into the ideal clients. </p><p>Discovery is essential in uncovering a brands strengths, weaknesses and what makes it valuable to prospective clients.</p>"
+    />
+  </TextBlock>
+
+  <TextBlock title="F">
+    <GlossaryEntry word="Favicon" phonics="/ˈfavɪkɒn/" type="noun" definition="<p>A 16x16 pixel icon associated with a website, usually displayed in the tab of the user’s browser or as part of a websites bookmark listing to aid in quick recognition.</p>" />
+  </TextBlock>
+
+  <TextBlock title="K">
+    <GlossaryEntry word="Kerning" phonics="/ˈkəːnɪŋ/" type="noun" definition="<p>The spacing between letters or characters in a piece of text.</p>" />
+  </TextBlock>
+
+  <TextBlock title="L">
+    <GlossaryEntry word="Logo" phonics="/ˈləʊɡəʊ/ " type="noun" definition="<p>The general term used to reference any unique mark or type used to identify a company or organisation.</p>" />
+    <GlossaryEntry word="Logomark" phonics="/ˈləʊɡə(ʊ)mɑːk/" type="noun" definition="<p>An icon or symbol used to identify a brand without requiring the use of the brand name or any accompanying words.</p><p>Also known as a <i>brandmark</i>.</p>" />
+    <GlossaryEntry word="Logotype" phonics="/ˈlɒɡə(ʊ)tʌɪp/" type="noun" definition="<p>A custom or edited typeface used to uniquely identify a company or organisation.</p><p>As known as a <i>wordmark</i>.</p>" />
+  </TextBlock>
+
+  <TextBlock title="P">
+    <GlossaryEntry word="Positioning" phonics="/pəˈzɪʃ(ə)n/" type="verb" definition="<p>The process used in business that aims to move and solidify a distinct position in the market for a brand to occupy.</p>" />
+  </TextBlock>
+
+  <TextBlock title="S">
+    <GlossaryEntry word="Signature" phonics="/ˈsɪɡnətʃə/" type="noun" definition="<p>The name for a set structural relationship found between the brand logo elements. This structure defines the position of elements that may include a logotype, a logomark and tagline.</p>" />
+    <GlossaryEntry
+      word="Slogan"
+      phonics="/ˈsləʊɡ(ə)n/"
+      type="noun"
+      definition="<p>a short, striking and memorable phrase that encapsulates the brands core values, personality and positioning while distinguishing it from any competitors.</p><p>From the old Scottish Gaelic ‘<em>slaugh-ghaiirm’</em> meaning ‘war-cry’.</p><p>Also known as a <strong>tagline</strong>, <strong>catchphrase</strong> or <strong>motto</strong>.</p>"
+    />
+    <GlossaryEntry word="Stylescape" phonics="/stʌɪlskeɪp/" type="noun" definition="<p>A tool used to express and clarify the proposed visual language used in a design project.</p>" />
+  </TextBlock>
+
+  <TextBlock title="T">
+    <GlossaryEntry word="Touchpoint" phonics="/ˈtʌtʃpɔɪnt/" type="noun" definition="<p>Any point at which contact or interaction can occur between an organisation and it’s customers. A touchpoint can be physical (ie. a face to face interaction in a store) or digital (ie. a website or app).</p>" />
+  </TextBlock>
+
+  <div class="contact-me max-width">
+    <h2 class="display">Need more Clarity?</h2>
+    <a href="/#contact-form" class="button-primary">Contact me</a>
+  </div>
+</Layout>
+
+<style>
+  .contact-me {
+    text-align: center;
+    border-top: 1px solid;
+    padding: 4rem 0;
+  }
+</style>

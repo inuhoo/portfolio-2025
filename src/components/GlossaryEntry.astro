@@ -1,0 +1,11 @@
+---
+const { word, phonics, type, definition } = Astro.props;
+---
+
+<div class="definition">
+  <h3>{word}</h3>
+  <div class="definition-content">
+    <p><span class="display">{phonics}</span>&nbsp;&nbsp;{type}</p>
+    <div set:html={definition} />
+  </div>
+</div>
