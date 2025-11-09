@@ -198,6 +198,8 @@ a {
     font-style: italic;
     transition: color 0.1s ease-out;
     position: relative;
+    min-height: 24px;
+    display: inline-block;
 
 
     &:not(.no-effect):hover {
