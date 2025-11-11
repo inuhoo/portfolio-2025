@@ -10,6 +10,7 @@ import { Image } from "astro:assets";
     <div class="logo-wrapper">
       <Image src={logo} alt="Adam Snape Creative Services Logo" loading="eager" width={100} densities={[1, 2]} />
       <h2 class="h1">Adam Snape</h2>
+      <small>First Edition - 2025</small>
     </div>
     <div class="sticker"><p>Bespoke solutions for small independent businesses.</p></div>
   </div>
@@ -35,6 +36,14 @@ import { Image } from "astro:assets";
       0 13px 0 white,
       0 14px grey;
 
+    & small {
+      padding: 0.75em 1em;
+      border: 1px solid;
+      border-left-width: 1.5em;
+      margin: 0.5em 0 0.5em auto;
+      display: inline-block;
+    }
+
     & hr {
       border: 2px solid var(--clr-white);
       margin: 3rem 0;
@@ -54,6 +63,7 @@ import { Image } from "astro:assets";
     display: flex;
     gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
 
     & .h1 {
       margin: 0;
