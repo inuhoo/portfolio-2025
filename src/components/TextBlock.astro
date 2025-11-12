@@ -1,15 +1,22 @@
 ---
 const { title, img, hover } = Astro.props;
 import { Image } from "astro:assets";
+const hasImage = img || hover;
 ---
 
 <div class="page-section max-width">
   <div class="heading-wrapper">
     <h2 class="h4 heading">{title}</h2>
-    <div class="avatar-wrapper">
-      {img && <Image src={img} alt={title + " image"} class="textblock-image" layout="constrained" widths={[320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
-      {hover && <Image src={hover} alt={title + " image"} class="textblock-hover" layout="constrained" widths={[320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
-    </div>
+    {
+      hasImage ? (
+        <div class="avatar-wrapper">
+          {img && <Image src={img} alt={title + " image"} class="textblock-image" layout="constrained" widths={[320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
+          {hover && <Image src={hover} alt={title + " image"} class="textblock-hover" layout="constrained" widths={[320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
+        </div>
+      ) : (
+        ""
+      )
+    }
   </div>
   <div class="content rtf">
     <slot />
@@ -42,8 +49,7 @@ import { Image } from "astro:assets";
       &::after {
         content: "";
         display: block;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         position: absolute;
         background-color: var(--clr-primary);
         mix-blend-mode: lighten;
