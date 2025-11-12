@@ -203,6 +203,7 @@ a {
     transition: color 0.1s ease-out;
     position: relative;
     min-height: 24px;
+    place-content: center;
     display: inline-block;
 
 
