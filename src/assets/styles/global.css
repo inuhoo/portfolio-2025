@@ -328,6 +328,10 @@ footer {
         max-height: 5.2rem;
     }
 
+    & p {
+        margin-bottom: 0;
+    }
+
     & .max-width {
         display: flex;
         justify-content: space-between;
@@ -345,6 +349,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 2.6rem;
+    width: min(500px, 100%);
 }
 
 .footer-bottom {
