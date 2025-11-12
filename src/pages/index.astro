@@ -10,10 +10,10 @@ import avatar from "../assets/media/avatar.jpg";
 import htavatar from "../assets/media/half-tone.png";
 
 import { Image } from "astro:assets";
-import khosh from "../assets/media/khosh.webp";
-import kingsway from "../assets/media/kingsway.webp";
-import snapes from "../assets/media/snapes.webp";
-import socounties from "../assets/media/so-counties.webp";
+import khoshicon from "../assets/media/khosh-icon.png";
+import kingswayicon from "../assets/media/kingsway-icon.png";
+import snapesicon from "../assets/media/snapes-logo.png";
+import socountiesicon from "../assets/media/so-counties.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -86,20 +86,20 @@ import socounties from "../assets/media/so-counties.webp";
   <TextBlock title="2.1 previous works">
     <div class="previous-work--grid">
       <div class="work">
-        <Image src={kingsway} alt="Kingsway Cars Branding Project" loading="lazy" densities={[1, 2]} />
-        <p>Kingsway Cars</p>
+        <Image src={kingswayicon} alt="Kingsway Cars Branding Project" loading="lazy" densities={[1, 2]} format="webp" />
+        <p>1/ <a href="/previous-work/kingsway-cars">Kingsway Cars</a></p>
       </div>
       <div class="work">
-        <Image src={socounties} alt="So Counties Branding Project" loading="lazy" densities={[1, 2]} />
-        <p>So Cheshire</p>
+        <Image src={snapesicon} alt="Snape & Sons Branding Project" loading="lazy" densities={[1, 2]} format="webp" />
+        <p>3/ <a href="/previous-work/snape-and-sons">Snape and Sons</a></p>
       </div>
       <div class="work">
-        <Image src={snapes} alt="Snape & Sons Branding Project" loading="lazy" densities={[1, 2]} />
-        <p>Snape & Sons</p>
+        <Image src={socountiesicon} alt="So Counties Branding Project" loading="lazy" densities={[1, 2]} format="webp" />
+        <p>2/ <a href="/previous-work/so-counties">So Counties</a></p>
       </div>
       <div class="work">
-        <Image src={khosh} alt="Khosh Clothing Branding Project" loading="lazy" densities={[1, 2]} />
-        <p>Khosh Clothing</p>
+        <Image src={khoshicon} alt="Khosh Clothing Branding Project" loading="lazy" densities={[1, 2]} format="webp" />
+        <p>4/ <a href="/previous-work/khosh-clothing">Khosh Clothing</a></p>
       </div>
     </div>
   </TextBlock>
@@ -135,12 +135,59 @@ import socounties from "../assets/media/so-counties.webp";
   .tabler-icon-brand-flipboard {
     rotate: 90deg;
   }
+
   .work {
     margin-bottom: 2rem;
+    break-inside: avoid;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &::after {
+      position: absolute;
+      content: "";
+      inset: 0;
+      position: absolute;
+      background-color: var(--clr-primary);
+      mix-blend-mode: lighten;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.1s ease;
+    }
+
+    & img {
+      margin: 0 auto;
+      filter: contrast(0);
+    }
 
     & p {
       border-top: 1px solid;
       margin-top: 0.5rem;
+      justify-self: flex-end;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 0;
+      }
+
+      & img {
+        filter: none;
+      }
+    }
+  }
+
+  .previous-work--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: auto auto 3rem;
+
+    & img {
+      max-height: 5rem;
+      width: auto;
+      margin-bottom: 3rem;
     }
   }
 </style>
