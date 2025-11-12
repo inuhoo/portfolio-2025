@@ -8,8 +8,8 @@ import { Image } from "astro:assets";
     <h1>Graphic Design <br />& Web Development</h1>
     <hr />
     <div class="logo-wrapper">
-      <Image src={logo} alt="Adam Snape Creative Services Logo" loading="eager" width={100} densities={[1, 2]} />
-      <h2 class="h1">Adam Snape</h2>
+      <Image src={logo} alt="Adam Snape Creative Services Logo" loading="eager" height={30} densities={[1, 2]} />
+      <h2 class="display">Adam Snape</h2>
       <small>First Edition - 2025</small>
     </div>
     <div class="sticker"><p>Bespoke solutions for small independent businesses.</p></div>
@@ -20,7 +20,7 @@ import { Image } from "astro:assets";
   .hero {
     background: linear-gradient(90deg, rgba(38, 38, 38, 0) 0.2%, rgba(10, 29, 125, 0.5) 0.8%, rgba(38, 38, 38, 0) 1.8%), linear-gradient(var(--clr-primary), var(--clr-primary));
     color: var(--clr-white);
-    padding: 4rem 0;
+    padding: 4rem 0 2rem;
     overflow: hidden;
     margin-bottom: 56px;
     box-shadow:
@@ -40,7 +40,7 @@ import { Image } from "astro:assets";
       padding: 0.75em 1em;
       border: 1px solid;
       border-left-width: 1.5em;
-      margin: 0.5em 0 0.5em auto;
+      margin: 0.5em 0 0.5em 0;
       display: inline-block;
     }
 
@@ -50,7 +50,7 @@ import { Image } from "astro:assets";
     }
 
     & img {
-      height: var(--fs-h1);
+      height: var(--fs-h2);
       width: auto;
     }
 
@@ -65,7 +65,7 @@ import { Image } from "astro:assets";
     align-items: center;
     flex-wrap: wrap;
 
-    & .h1 {
+    & h2 {
       margin: 0;
     }
   }
@@ -113,6 +113,12 @@ import { Image } from "astro:assets";
       transform: rotate(15deg);
       font-size: var(--fs-s);
       margin: -0.7rem 0 0 0.3rem;
+    }
+  }
+
+  @media screen and (width > 425px) {
+    .hero small {
+      margin: 0.5rem.0 0.5rem auto;
     }
   }
   @media screen and (width > 560px) {
