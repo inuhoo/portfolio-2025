@@ -39,6 +39,17 @@ import { Image } from "astro:assets";
       margin-top: 1rem;
       padding: 0.5rem;
 
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: var(--clr-primary);
+        mix-blend-mode: lighten;
+        pointer-events: none;
+      }
+
       & > img {
         grid-area: 1 / 1;
         transition: opacity 0.2s ease;
