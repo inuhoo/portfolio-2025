@@ -330,7 +330,7 @@ footer {
     }
 
     & p {
-        margin-bottom: 0;
+        margin-block: 0;
     }
 
     & .max-width {
@@ -351,6 +351,20 @@ footer {
     align-items: center;
     gap: 2.6rem;
     width: min(500px, 100%);
+}
+
+.location {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+
+    &>* {
+        flex: 1 0 max-content;
+    }
+
+    & img {
+        object-fit: contain;
+    }
 }
 
 .footer-bottom {

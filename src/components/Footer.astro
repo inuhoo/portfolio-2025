@@ -1,5 +1,7 @@
 ---
 const year = new Date().getFullYear();
+import { Image } from "astro:assets";
+import ibtpd from "../assets/media/ibtpd-logo-blue.png";
 ---
 
 <footer>
@@ -11,10 +13,13 @@ const year = new Date().getFullYear();
     <div class="footer-right">
       <a href="tel:447969655308">+44 (0)7969 655 308 </a><br />
       <a href="mailto:adam@snape.xyz">adam@snape.xyz</a>
-      <p>
-        Buxton, Derbyshire, UK <br />
-        © copyright <b>Adam Snape {year}</b>
-      </p>
+      <div class="location">
+        <Image src={ibtpd} alt="Inspired by the Peak District" loading="lazy" height={32} densities={[1, 2]} />
+        <p>
+          Buxton, Derbyshire, UK <br />
+          © copyright <b>Adam Snape {year}</b>
+        </p>
+      </div>
     </div>
     <div class="footer-bottom">
       quick links: <a href="/">home</a> | <a href="/glossary">glossary</a> | <a href="/privacy-policy">privacy policy</a> | <a href="/cv">cv</a>
