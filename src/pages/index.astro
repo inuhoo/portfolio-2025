@@ -25,14 +25,16 @@ import pedalpower from "../assets/media/logos/peddle-power.png";
 import quasar from "../assets/media/logos/quasar.png";
 import rosscircle from "../assets/media/logos/ross-circle.png";
 
+const meta_desc = "Bespoke graphic design and web development services for small independent businesses that works, from Buxton in the hills of Derbyshire.";
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout desc={meta_desc}>
   <Hero />
   <TextBlock title="1.1 about me" img={htavatar} hover={avatar}>
-    <p>Hello, Hola, Bonjour. I'm Adam, a freelance visual identity designer and web developer based in t'hills of the Peak District.</p>
+    <p>Hello, Hola, Bonjour. I'm Adam, a freelance visual identity designer and web developer. Nestled in the hills of The Peak District I am based in Buxton, Derbyshire.</p>
     <p>I work with independent businesses to find their voice and express it through strategic design and modern technologies.</p>
 
     <p>

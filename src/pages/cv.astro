@@ -4,9 +4,11 @@ import Header from "../components/Header.astro";
 import TextBlock from "../components/TextBlock.astro";
 import CvExperience from "../components/CvExperience.astro";
 import avatar from "../assets/media/avatar.jpg";
+
+const meta_desc = "Curriculum vitae of Adam Snape, a freelance web and graphic designer based in Buxton, Derbyshire. Skills, experience and background in design and development and an e-commerce expert.";
 ---
 
-<Layout title="Curriculum Vitae">
+<Layout title="Curriculum Vitae" desc={meta_desc}>
   <Header title="Curriculum Vitae" subtitle="Adam Snape | Design, Developer and E-commerce Specialist" />
   <TextBlock title="Profile Summary" img={avatar}>
     <p>

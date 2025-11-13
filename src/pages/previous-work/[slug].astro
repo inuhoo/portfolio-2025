@@ -24,7 +24,7 @@ const images = import.meta.glob("../../content/previous-work/*.{jpg,png,jpeg}", 
 const image = images[`../../content/previous-work/${item.slug}.jpg`];
 ---
 
-<Layout title={title}>
+<Layout title={title} desc={title + " Case Study: A detailed look at the project goals, design process, and outcomes."}>
   <Header title={title} subtitle="Case Study" />
   <div class="case-study max-width">
     <div style="margin-top:-3rem" class="rtf" set:html={about} />

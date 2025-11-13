@@ -3,9 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import TextBlock from "../components/TextBlock.astro";
 import GlossaryEntry from "../components/GlossaryEntry.astro";
+
+const meta_desc = "A clear, no-nonsense glossary that breaks down common design and branding jargon to help you communicate with confidence.";
 ---
 
-<Layout title="Design Glossary">
+<Layout title="Design Glossary" desc={meta_desc}>
   <!-- header -->
   <Header title="Glossary" subtitle="Jargon. Busted." />
   <TextBlock title="intro">
