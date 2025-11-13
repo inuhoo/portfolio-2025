@@ -1,6 +1,8 @@
 ---
 import "../assets/styles/global.css";
 import Footer from "../components/Footer.astro";
+import Schema from "../components/Schema.astro";
+import OgTags from "../components/OgTags.astro";
 const { title, desc } = Astro.props;
 ---
 
@@ -14,6 +16,8 @@ const { title, desc } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title ? `${title} | Adam Snape Creative Services` : `Adam Snape Creative Services`}</title>
     <meta name="description" content={desc} />
+    <OgTags />
+    <Schema />
   </head>
   <body>
     <main>
