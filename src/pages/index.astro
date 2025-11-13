@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import TextBlock from "../components/TextBlock.astro";
 import ContactForm from "../components/ContactForm.astro";
 import GlossaryEntry from "../components/GlossaryEntry.astro";
+import LogoItem from "../components/LogoItem.astro";
 
 import avatar from "../assets/media/avatar.jpg";
 import htavatar from "../assets/media/half-tone.png";
@@ -14,6 +15,15 @@ import khoshicon from "../assets/media/khosh-icon.png";
 import kingswayicon from "../assets/media/kingsway-icon.png";
 import snapesicon from "../assets/media/snapes-logo.png";
 import socountiesicon from "../assets/media/so-counties.png";
+import arc from "../assets/media/logos/arc.png";
+import epc from "../assets/media/logos/epc.png";
+import frothee from "../assets/media/logos/frothee.png";
+import kitsu from "../assets/media/logos/kitsu.png";
+import manchester from "../assets/media/logos/manchester.png";
+import packandtrail from "../assets/media/logos/pack-and-trail.png";
+import pedalpower from "../assets/media/logos/peddle-power.png";
+import quasar from "../assets/media/logos/quasar.png";
+import rosscircle from "../assets/media/logos/ross-circle.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -85,109 +95,58 @@ import socountiesicon from "../assets/media/so-counties.png";
   </TextBlock>
   <TextBlock title="2.1 previous works">
     <div class="previous-work--grid">
-      <div class="work">
-        <Image src={kingswayicon} alt="Kingsway Cars Branding Project" loading="lazy" densities={[1, 2]} format="webp" />
-        <p>1/ <a href="/previous-work/kingsway-cars">Kingsway Cars</a></p>
-      </div>
-      <div class="work">
-        <Image src={snapesicon} alt="Snape & Sons Branding Project" loading="lazy" densities={[1, 2]} format="webp" />
-        <p>3/ <a href="/previous-work/snape-and-sons">Snape and Sons</a></p>
-      </div>
-      <div class="work">
-        <Image src={socountiesicon} alt="So Counties Branding Project" loading="lazy" densities={[1, 2]} format="webp" />
-        <p>2/ <a href="/previous-work/so-counties">So Counties</a></p>
-      </div>
-      <div class="work">
-        <Image src={khoshicon} alt="Khosh Clothing Branding Project" loading="lazy" densities={[1, 2]} format="webp" />
-        <p>4/ <a href="/previous-work/khosh-clothing">Khosh Clothing</a></p>
-      </div>
+      <LogoItem title="Kingsway Cars" img={kingswayicon} index="1" link="/previous-work/kingsway-cars" />
+      <LogoItem title="Arc Property Development" img={arc} index="2" />
+      <LogoItem title="Snape & Sons" img={snapesicon} index="3" link="/previous-work/snape-and-sons" />
+      <LogoItem title="Endangered Panda Conservation" img={epc} index="4" />
+      <LogoItem title="The Frothee Coffee Co." img={frothee} index="5" />
+      <LogoItem title="Kitsu Shoes" img={kitsu} index="6" />
+      <LogoItem title="So Counties" img={socountiesicon} index="7" link="/previous-work/so-counties" />
+      <LogoItem title="City of Manchester" img={manchester} index="8" />
+      <LogoItem title="Pedal Power" img={pedalpower} index="9" />
+      <LogoItem title="Khosh Clothing" img={khoshicon} index="10" link="/previous-work/khosh-clothing" />
+      <LogoItem title="Ross & Circle" img={rosscircle} index="11" />
+      <LogoItem title="Quasar" img={quasar} index="12" />
     </div>
   </TextBlock>
   <TextBlock title="3.1 contact me">
     <ContactForm />
   </TextBlock>
+
+  <style>
+    .skills-grid {
+      column-span: all;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+      gap: 1rem;
+    }
+
+    .skills-list {
+      margin: 4rem 0 0;
+      columns: 18ch;
+      column-span: all;
+
+      & p {
+        margin: 0;
+        font-size: var(--fs-s);
+      }
+    }
+
+    .skills svg {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .tabler-icon-brand-flipboard {
+      rotate: 90deg;
+    }
+
+    .previous-work--grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-auto-rows: 1fr;
+      gap: 2rem;
+      margin: auto auto 3rem;
+    }
+  </style>
 </Layout>
-
-<style>
-  .skills-grid {
-    column-span: all;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
-    gap: 1rem;
-  }
-
-  .skills-list {
-    margin: 4rem 0 0;
-    columns: 18ch;
-    column-span: all;
-
-    & p {
-      margin: 0;
-      font-size: var(--fs-s);
-    }
-  }
-
-  .skills svg {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .tabler-icon-brand-flipboard {
-    rotate: 90deg;
-  }
-
-  .work {
-    margin-bottom: 2rem;
-    break-inside: avoid;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    &::after {
-      position: absolute;
-      content: "";
-      inset: 0;
-      position: absolute;
-      background-color: var(--clr-primary);
-      mix-blend-mode: lighten;
-      pointer-events: none;
-      opacity: 1;
-      transition: opacity 0.1s ease;
-    }
-
-    & img {
-      margin: 0 auto;
-      filter: contrast(0);
-    }
-
-    & p {
-      border-top: 1px solid;
-      margin-top: 0.5rem;
-      justify-self: flex-end;
-    }
-
-    &:hover {
-      &::after {
-        opacity: 0;
-      }
-
-      & img {
-        filter: none;
-      }
-    }
-  }
-
-  .previous-work--grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
-    margin: auto auto 3rem;
-
-    & img {
-      max-height: 5rem;
-      width: auto;
-      margin-bottom: 3rem;
-    }
-  }
-</style>

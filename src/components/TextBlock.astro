@@ -45,6 +45,7 @@ const hasImage = img || hover;
       display: grid;
       margin-top: 1rem;
       padding: 0.5rem;
+      position: relative;
 
       &::after {
         content: "";
@@ -74,10 +75,15 @@ const hasImage = img || hover;
       &:hover {
         & .textblock-hover {
           opacity: 1;
+          filter: none;
         }
 
         & .textblock-image {
           opacity: 0;
+        }
+
+        &::after {
+          display: none;
         }
       }
     }
@@ -93,6 +99,10 @@ const hasImage = img || hover;
       grid-template-columns: 1fr 3fr;
       gap: 3rem;
     }
+  }
+
+  .page-section {
+    margin-bottom: 0;
   }
 
   img {

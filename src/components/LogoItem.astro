@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+const { title, img, index, link } = Astro.props;
+---
+
+<div class="work">
+  <div class="logo-img">
+    <Image src={img} alt={title + "Logo"} loading="lazy" densities={[1, 2]} format="webp" />
+  </div>
+  <p>
+    {index && index + "/"}
+    {link ? <a href={link}>{title}</a> : title}
+  </p>
+</div>
+
+<style>
+  .work {
+    margin-block: 1rem;
+    break-inside: avoid;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &::after {
+      position: absolute;
+      content: "";
+      inset: 0;
+      position: absolute;
+      background-color: var(--clr-primary);
+      mix-blend-mode: hue;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.1s ease;
+    }
+
+    & img {
+      margin: 0 auto;
+      max-height: 5rem;
+      width: auto;
+      max-width: 65%;
+      margin-bottom: 2rem;
+      scale: 1;
+      transition: scale 0.5s ease;
+    }
+
+    & p {
+      border-top: 1px solid;
+      margin-top: 0.5rem;
+      justify-self: flex-end;
+      height: 3.2em;
+      line-height: 1.6;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 0;
+      }
+
+      & img {
+        filter: none;
+        scale: 1.2;
+      }
+    }
+  }
+</style>
