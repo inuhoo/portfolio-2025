@@ -5,7 +5,8 @@ import { Image } from "astro:assets";
 
 <div class="hero">
   <div class="max-width">
-    <h1>Graphic Design <br />& Web Development</h1>
+    <h1>Web Design & Branding:<br /><span class="subtitle h2">A Services Overview</span></h1>
+
     <hr />
     <div class="logo-wrapper">
       <Image src={logo} alt="Adam Snape Creative Services Logo" loading="eager" height={30} densities={[1, 2]} />
@@ -52,6 +53,16 @@ import { Image } from "astro:assets";
     & img {
       height: var(--fs-h2);
       width: auto;
+    }
+
+    & .subtitle {
+      scale: 0.7;
+      display: block;
+      transform-origin: left center;
+      font-weight: normal;
+      font-family: var(--ff-body);
+      color: var(--clr-white);
+      line-height: 1.6;
     }
 
     & .max-width {
