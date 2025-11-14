@@ -10,8 +10,8 @@ const hasImage = img || hover;
     {
       hasImage ? (
         <div class="avatar-wrapper">
-          {img && <Image src={img} alt={title + " image"} class="textblock-image" layout="constrained" widths={[320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
-          {hover && <Image src={hover} alt={title + " image"} class="textblock-hover" layout="constrained" widths={[320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
+          {img && <Image src={img} alt={title + " image"} class="textblock-image" layout="constrained" widths={[200, 320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
+          {hover && <Image src={hover} alt={title + " image"} class="textblock-hover" layout="constrained" widths={[200, 320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
         </div>
       ) : (
         ""
