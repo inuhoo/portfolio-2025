@@ -19,12 +19,18 @@ import { Image } from "astro:assets";
 
 <style>
   .hero {
+    transform: scaleX(100%);
+    filter: brightness(100%);
+    display: grid;
+    top: 0;
+    z-index: 2;
+    min-height: 100svh;
     background: linear-gradient(90deg, rgba(38, 38, 38, 0) 0.2%, rgba(10, 29, 125, 0.5) 0.8%, rgba(38, 38, 38, 0) 1.8%), linear-gradient(var(--clr-primary), var(--clr-primary));
     color: var(--clr-white);
     padding: 4rem 0 2rem;
     overflow: hidden;
     margin-bottom: 56px;
-    box-shadow:
+    /* box-shadow:
       0 4px 0 #0c1c65,
       0 5px 0 white,
       0 6px grey,
@@ -35,7 +41,8 @@ import { Image } from "astro:assets";
       0 11px 0 white,
       0 12px grey,
       0 13px 0 white,
-      0 14px grey;
+      0 14px grey; */
+    transform-origin: left center;
 
     & small {
       padding: 0.75em 1em;
@@ -67,7 +74,19 @@ import { Image } from "astro:assets";
 
     & .max-width {
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
     }
+  }
+
+  .hero--sticky {
+    box-shadow: 5px 0 100vw black;
+    position: sticky;
+  }
+
+  :global(.hero--sticky + .page-section) {
+    margin-top: -100svh;
   }
 
   .logo-wrapper {

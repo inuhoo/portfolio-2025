@@ -146,3 +146,27 @@ const meta_desc = "Bespoke web design and branding services for small business, 
     }
   </style>
 </Layout>
+
+<style>
+  :global(.hero--sticky + .page-section) {
+    margin-top: -100svh;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hero = document.querySelector(".hero");
+    hero?.classList.add("hero--sticky");
+    window.addEventListener("scroll", function () {
+      const first_section = document.querySelector(".hero--sticky + .page-section");
+      const window_height = window.innerHeight;
+      const scroll_position = window.scrollY;
+      const pc = -1 * ((scroll_position - window_height) / window_height) * 100;
+      const amount = pc < 0 ? 0 : pc;
+      hero.style.transform = `scaleX(${amount}%)`;
+      hero.style.filter = `brightness(${amount > 20 ? amount : 20}%)`;
+      console.log(first_section.style.marginTop, `${0 - amount}svh`);
+      first_section.style.marginTop = `${10 - amount}svh`;
+    });
+  });
+</script>
