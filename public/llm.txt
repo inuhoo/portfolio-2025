@@ -1,0 +1,71 @@
+# llm.txt for adamsnape.com
+# Location: https://adamsnape.com/llm.txt
+# Purpose: Declare permissions for AI / LLM crawlers.
+# Note: This file expresses your preferences; technical enforcement still relies on robots.txt.
+
+site: https://adamsnape.com
+owner: Adam Snape
+contact: mailto:adam@snape.xyz
+last-updated: 2025-11-16
+
+# ---------------------------------------------------------------------------
+# Global Policy
+# ---------------------------------------------------------------------------
+# High-level intent:
+# - Allow AI crawlers to access and read publicly available pages.
+# - Do NOT grant permission for use of content in AI/ML training datasets.
+# - Do allow non-commercial derivative summaries (e.g., search snippets).
+
+policy:
+  ai-access: allow
+  ai-training: disallow
+  ai-derivatives: allow-noncommercial
+
+# ---------------------------------------------------------------------------
+# Known / major AI crawler preferences (informal, advisory only)
+# ---------------------------------------------------------------------------
+
+crawler: openai
+  ai-access: allow
+  ai-training: disallow
+
+crawler: anthropic
+  ai-access: allow
+  ai-training: disallow
+
+crawler: google-ai
+  ai-access: allow
+  ai-training: disallow
+
+crawler: meta-ai
+  ai-access: allow
+  ai-training: disallow
+
+crawler: perplexity
+  ai-access: allow
+  ai-training: disallow
+
+crawler: *
+  ai-access: allow
+  ai-training: disallow
+
+# ---------------------------------------------------------------------------
+# Path-level guidance
+# (For actual blocking, use robots.txt; this section is advisory)
+# ---------------------------------------------------------------------------
+
+# Public pages
+path: /
+  ai-access: allow
+  ai-training: disallow
+
+# Sensitive or private areas (edit if needed)
+path: /admin/
+  ai-access: disallow
+  ai-training: disallow
+
+path: /account/
+  ai-access: disallow
+  ai-training: disallow
+
+# End of file
