@@ -20,7 +20,7 @@ import frothee from "../assets/media/logos/frothee.png";
 import kitsu from "../assets/media/logos/kitsu.png";
 import pedalpower from "../assets/media/logos/peddle-power.png";
 
-const meta_desc = "Bespoke web design and branding services for small business, that works. Based in Buxton in the hills of Derbyshire.";
+const meta_desc = "Freelance brand identity designer & web developer based in the UK. Bespoke brand strategy, logo & visual identity design, brochure and e-commerce websites for small independent businesses.";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -71,17 +71,17 @@ const meta_desc = "Bespoke web design and branding services for small business, 
       <div class="skills"><IconBrandFlipboard stroke={1} /><small>8/</small></div>
       <div class="skills"><IconBrandShopee stroke={1} /><small>9/</small></div>
     </div>
-    <div class="skills-list">
-      <p>1/ Adobe Illustrator</p>
-      <p>2/ Adobe Photoshop</p>
-      <p>3/ HTML5</p>
-      <p>4/ CSS3</p>
-      <p>5/ Javascript</p>
-      <p>6/ React</p>
-      <p>7/ Astro</p>
-      <p>8/ StrAPI</p>
-      <p>8/ Shopify</p>
-    </div>
+    <ul class="skills-list">
+      <li>1/ Adobe Illustrator</li>
+      <li>2/ Adobe Photoshop</li>
+      <li>3/ HTML5</li>
+      <li>4/ CSS3</li>
+      <li>5/ Javascript</li>
+      <li>6/ React</li>
+      <li>7/ Astro</li>
+      <li>8/ StrAPI</li>
+      <li>8/ Shopify</li>
+    </ul>
   </TextBlock>
 
   <Spacer />
@@ -107,6 +107,7 @@ const meta_desc = "Bespoke web design and branding services for small business, 
       margin: 2rem 0 0;
       columns: 15ch;
       column-span: all;
+      list-style: none;
 
       & p {
         margin: 0;
