@@ -2,7 +2,7 @@
   <p><span class="display">Please get in touch to schedule a quick call to see if I'm a good fit for your project. </span>Worst case you'll have a fun 15 minute chat and come away with a better understanding of your problem.</p>
 </div>
 
-<form name="contact" method="POST" netlify netlify-honeypot="bot-field" id="contact-form">
+<form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contact-form">
   <input type="hidden" name="form-name" value="contact" />
 
   <label
@@ -39,12 +39,13 @@
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", async (e) => {
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form);
-    const data = new URLSearchParams(formData).toString();
+    const formData = new FormData(form as HTMLFormElement);
+    const data = new URLSearchParams(formData as any).toString();
 
+    if (!status) return;
     status.textContent = "Sending...";
 
     try {
@@ -55,7 +56,7 @@
       });
 
       if (response.ok) {
-        form.reset();
+        (form as HTMLFormElement)?.reset();
         status.textContent = "✅ Message sent successfully!";
       } else {
         status.textContent = "❌ Something went wrong. Please try again.";
