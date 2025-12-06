@@ -1,14 +1,13 @@
 ---
-import { IconBrandAdobeIllustrator, IconBrandAdobePhotoshop, IconBrandAstro, IconBrandCss3, IconBrandFlipboard, IconBrandHtml5, IconBrandReact, IconBrandShopee } from "@tabler/icons-react";
+import { IconBrandAdobeIllustrator, IconBrandAdobePhotoshop, IconBrandAstro, IconBrandCss3, IconBrandFlipboard, IconBrandHtml5, IconBrandJavascript, IconBrandReact, IconBrandShopee } from "@tabler/icons-react";
+import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import TextBlock from "../components/TextBlock.astro";
+import Spacer from "../components/Spacer.astro";
 import ContactForm from "../components/ContactForm.astro";
 import GlossaryEntry from "../components/GlossaryEntry.astro";
 import LogoItem from "../components/LogoItem.astro";
-
-import avatar from "../assets/media/avatar.jpg";
-import htavatar from "../assets/media/half-tone.png";
 
 import { Image } from "astro:assets";
 import khoshicon from "../assets/media/khosh-icon.png";
@@ -19,11 +18,7 @@ import arc from "../assets/media/logos/arc.png";
 import epc from "../assets/media/logos/epc.png";
 import frothee from "../assets/media/logos/frothee.png";
 import kitsu from "../assets/media/logos/kitsu.png";
-import manchester from "../assets/media/logos/manchester.png";
-import packandtrail from "../assets/media/logos/pack-and-trail.png";
 import pedalpower from "../assets/media/logos/peddle-power.png";
-import quasar from "../assets/media/logos/quasar.png";
-import rosscircle from "../assets/media/logos/ross-circle.png";
 
 const meta_desc = "Bespoke web design and branding services for small business, that works. Based in Buxton in the hills of Derbyshire.";
 
@@ -32,64 +27,25 @@ const meta_desc = "Bespoke web design and branding services for small business, 
 ---
 
 <Layout desc={meta_desc}>
+  <Header />
   <Hero />
-  <TextBlock title="1.1 about me" img={htavatar} hover={avatar}>
-    <p>Hello, Hola, Bonjour. I'm Adam — a freelance web designer, developer, and visual identity specialist based in Buxton, Derbyshire, in the heart of the Peak District.</p>
-    <p>I help independent businesses stand out online through strategic, user‑focused web design. My approach blends strong visual identity design with modern, high‑performance web development to create websites for businesses that look great, load fast, and genuinely support your goals.</p>
-    <p>Your brand and any website for business should feel like <i>you</i>. By working closely together, we’ll uncover what makes your business unique and translate that into a clear visual style and an online presence that connects with your ideal customers.</p>
+
+  <TextBlock title="Does your brand speak your buyer's language?">
+    <p>Without a clear brand strategy, even the strongest businesses struggle to stand out. Mixed messages, inconsistent visuals, and unclear positioning make it harder for customers to understand your value and even easier for competitors to take your place.</p>
     <p>
-      I design and build websites that are easy to manage, simple to navigate, and crafted using modern best practice. Whether you need a clean and effective brochure site or a fully bespoke e‑commerce experience, I focus on building websites for businesses that are purposeful, scalable, and built
-      to convert.
+      A strategic brand changes that. With your purpose, personality, and positioning clearly defined, every interaction becomes more powerful. You communicate with confidence, attract the right audience, and build trust faster. Consistency turns into recognition, and recognition turns into revenue.
     </p>
-    <p>If you’re ready to strengthen your brand and elevate your online presence with thoughtful, strategic web design, I’d love to chat and explore how we can bring your ideas to life.</p>
-    <a href="#contact-form" class="button-primary">get in touch</a>
+    <p>I work with ambitious independent business owners to uncover the core attributes that make their brand meaningful and different. Through a focused brand strategy process, we define your message, sharpen your positioning, and identify the unique value you bring to the market.</p>
+    <p>From there, I translate these insights into a cohesive visual identity and design system that amplifies your presence and supports real business growth.</p>
+    <p>With clarity and strategy behind your brand, you won't get lost in translation.</p>
+    <a href="#contact-form" class="button-primary">Get in touch</a>
   </TextBlock>
-  <TextBlock title="1.2 services">
-    <GlossaryEntry title="a) Brochure Websites">
-      <p>
-        Fast, modern brochure websites for businesses designed with a focus on clean layout, usability, and performance. Built using tools like <a href="https://strapi.io" target="_blank">Strapi</a> for easy content editing and <a href="https://astro.build" target="_blank">Astro</a> for best‑in‑class
-        page speed. A perfect web design solution for small businesses who want a professional, SEO‑friendly online presence.
-      </p>
-    </GlossaryEntry>
-    <GlossaryEntry title="b) E-commerce Websites">
-      <p>Fully‑designed Shopify e‑commerce websites for business that prioritise clarity, conversion, and user experience. I create online stores that are easy to manage, visually consistent with your brand, and built with solid web design principles that help customers browse, trust, and buy.</p>
-    </GlossaryEntry>
-    <GlossaryEntry title="c) Brand Identity Design">
-      <p>Brand identities that support stronger web design. From logos and colour palettes to typography and tone of voice, I create cohesive visuals that translate seamlessly into a professional website and help your business feel recognisable, trustworthy, and aligned across every touchpoint.</p>
-    </GlossaryEntry>
-    <GlossaryEntry title="d) Graphic Design">
-      <p>Graphic design services that complement your website and overall brand. From printed materials to digital assets, I produce clear, engaging visuals that support your message and strengthen your online presence.</p>
-    </GlossaryEntry>
-  </TextBlock>
-  <TextBlock title="1.3 my skills">
-    <div class="skills-grid">
-      <div class="skills"><IconBrandAdobeIllustrator stroke={1} /><small>1/</small></div>
-      <div class="skills"><IconBrandAdobePhotoshop stroke={1} /><small>2/</small></div>
-      <div class="skills"><IconBrandHtml5 stroke={1} /><small>3/</small></div>
-      <div class="skills"><IconBrandCss3 stroke={1} /><small>4/</small></div>
-      <div class="skills"><IconBrandAstro stroke={1} /><small>5/</small></div>
-      <div class="skills"><IconBrandFlipboard stroke={1} /><small>6/</small></div>
-      <div class="skills"><IconBrandReact stroke={1} /><small>7/</small></div>
-      <div class="skills"><IconBrandShopee stroke={1} /><small>8/</small></div>
-    </div>
-    <div class="skills-list">
-      <p>1/Adobe Illustrator</p>
-      <p>2/Adobe Photoshop</p>
-      <p>3/HTML5</p>
-      <p>4/CSS3</p>
-      <p>5/Astro</p>
-      <p>6/StrAPI</p>
-      <p>7/React</p>
-      <p>8/Shopify</p>
-    </div>
-  </TextBlock>
-  <TextBlock title="i) quote">
-    <blockquote>
-      The alternative to good design is bad design. There is no such thing as no design.
-      <cite>Adam Judge</cite>
-    </blockquote>
-  </TextBlock>
-  <TextBlock title="2.1 previous works">
+  <Spacer />
+  <div class="max-width">
+    <blockquote>Thinking about design is hard, but not thinking about it can be disastrous <cite> Ralph Caplan</cite></blockquote>
+  </div>
+  <Spacer />
+  <TextBlock title="Previous works">
     <div class="previous-work--grid">
       <LogoItem title="Kingsway Cars" img={kingswayicon} index="1" link="/previous-work/kingsway-cars" />
       <LogoItem title="Arc Property Development" img={arc} index="2" />
@@ -98,16 +54,46 @@ const meta_desc = "Bespoke web design and branding services for small business, 
       <LogoItem title="The Frothee Coffee Co." img={frothee} index="5" />
       <LogoItem title="Kitsu Kids" img={kitsu} index="6" />
       <LogoItem title="So Counties" img={socountiesicon} index="7" link="/previous-work/so-counties" />
-      <LogoItem title="City of Manchester" img={manchester} index="8" />
-      <LogoItem title="Pedal Power" img={pedalpower} index="9" />
-      <LogoItem title="Khosh Clothing" img={khoshicon} index="10" link="/previous-work/khosh-clothing" />
-      <LogoItem title="Ross & Circle" img={rosscircle} index="11" />
-      <LogoItem title="Quasar" img={quasar} index="12" />
+      <LogoItem title="Pedal Power" img={pedalpower} index="8" />
+      <LogoItem title="Khosh Clothing" img={khoshicon} index="9" link="/previous-work/khosh-clothing" />
     </div>
   </TextBlock>
-  <TextBlock title="3.1 contact me">
+  <Spacer />
+  <TextBlock title="Technical skills">
+    <div class="skills-grid">
+      <div class="skills"><IconBrandAdobeIllustrator stroke={1} /><small>1/</small></div>
+      <div class="skills"><IconBrandAdobePhotoshop stroke={1} /><small>2/</small></div>
+      <div class="skills"><IconBrandHtml5 stroke={1} /><small>3/</small></div>
+      <div class="skills"><IconBrandCss3 stroke={1} /><small>4/</small></div>
+      <div class="skills"><IconBrandJavascript stroke={1} /><small>5/</small></div>
+      <div class="skills"><IconBrandReact stroke={1} /><small>6/</small></div>
+      <div class="skills"><IconBrandAstro stroke={1} /><small>7/</small></div>
+      <div class="skills"><IconBrandFlipboard stroke={1} /><small>8/</small></div>
+      <div class="skills"><IconBrandShopee stroke={1} /><small>9/</small></div>
+    </div>
+    <div class="skills-list">
+      <p>1/ Adobe Illustrator</p>
+      <p>2/ Adobe Photoshop</p>
+      <p>3/ HTML5</p>
+      <p>4/ CSS3</p>
+      <p>5/ Javascript</p>
+      <p>6/ React</p>
+      <p>7/ Astro</p>
+      <p>8/ StrAPI</p>
+      <p>8/ Shopify</p>
+    </div>
+  </TextBlock>
+
+  <Spacer />
+  <TextBlock title="Lets work together!">
     <ContactForm />
   </TextBlock>
+  <div class="max-width">
+    <blockquote>
+      The alternative to good design is bad design. There is no such thing as no design.
+      <cite>Adam Judge</cite>
+    </blockquote>
+  </div>
 
   <style>
     .skills-grid {
@@ -118,8 +104,8 @@ const meta_desc = "Bespoke web design and branding services for small business, 
     }
 
     .skills-list {
-      margin: 4rem 0 0;
-      columns: 18ch;
+      margin: 2rem 0 0;
+      columns: 15ch;
       column-span: all;
 
       & p {
@@ -143,6 +129,7 @@ const meta_desc = "Bespoke web design and branding services for small business, 
       grid-auto-rows: 1fr;
       gap: 2rem;
       margin: auto auto 3rem;
+      column-span: all;
     }
   </style>
 </Layout>

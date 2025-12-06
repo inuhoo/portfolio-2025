@@ -1,5 +1,5 @@
 <div class="contact-header" style="column-span: all;">
-  <p><span class="display">Got an idea?</span> Let's work together.</p>
+  <p><span class="display">Please get in touch to schedule a quick call to see if I'm a good fit for your project. </span>Worst case you'll have a fun 15 minute chat and come away with a better unstanding of your problem.</p>
 </div>
 
 <form name="contact" method="POST" netlify netlify-honeypot="bot-field" id="contact-form">
@@ -14,6 +14,12 @@
   <label
     >Your Email: <div class="input-wrapper">
       <input type="email" name="email" required placeholder="email" />
+      <div class="cursor">|</div>
+    </div>
+  </label>
+  <label
+    >Your Phone Number: <div class="input-wrapper">
+      <input type="tel" name="phone" required placeholder="phone" />
       <div class="cursor">|</div>
     </div>
   </label>
@@ -61,10 +67,15 @@
 </script>
 
 <style>
+  #contact-form {
+    scroll-margin-top: 10rem;
+  }
+
   label {
     display: block;
     width: 100%;
-    border-block: 1px solid;
+    color: var(--clr-black);
+    border-bottom: 1px solid var(--clr-grey);
     margin: 1rem 0;
     padding: 0.5rem 0;
     break-inside: avoid;

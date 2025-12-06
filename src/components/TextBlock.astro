@@ -1,22 +1,10 @@
 ---
-const { title, img, hover } = Astro.props;
-import { Image } from "astro:assets";
-const hasImage = img || hover;
+const { title } = Astro.props;
 ---
 
 <div class="page-section max-width">
   <div class="heading-wrapper">
-    <h2 class="h4 heading">{title}</h2>
-    {
-      hasImage ? (
-        <div class="avatar-wrapper">
-          {img && <Image src={img} alt={title + " image"} class="textblock-image" layout="constrained" widths={[200, 320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
-          {hover && <Image src={hover} alt={title + " image"} class="textblock-hover" layout="constrained" widths={[200, 320, 480, 600, 960, 1280]} sizes="(max-width: 600px) 80vw, 33vw" format="webp" />}
-        </div>
-      ) : (
-        ""
-      )
-    }
+    <h2 class="heading">{title}</h2>
   </div>
   <div class="content rtf">
     <slot />
@@ -24,90 +12,22 @@ const hasImage = img || hover;
 </div>
 
 <style>
-  .page-section {
-    border-top: 1px solid var(--clr-primary);
-    margin: 2rem auto 5rem;
-    align-items: start;
-
-    & .heading-wrapper {
-      flex: 1 0 auto;
-      min-width: 20vw;
-      & .heading {
-        border-top: none;
-        line-height: 1.6;
-        font-weight: 700;
-        color: var(--clr-primary);
-        border-color: var(--clr-primary);
-      }
-    }
-
-    & .avatar-wrapper {
-      display: grid;
-      margin-top: 1rem;
-      padding: 0.5rem;
-      position: relative;
-
-      &::after {
-        content: "";
-        display: block;
-        inset: 0;
-        position: absolute;
-        background-color: var(--clr-primary);
-        mix-blend-mode: lighten;
-        pointer-events: none;
-      }
-
-      & > img {
-        grid-area: 1 / 1;
-        transition: opacity 0.2s ease;
-        padding: 0;
-        margin: 0;
-      }
-
-      & .textblock-hover {
-        opacity: 0;
-      }
-
-      & .textblock-image {
-        opacity: 1;
-      }
-
-      &:hover {
-        & .textblock-hover {
-          opacity: 1;
-          filter: none;
-        }
-
-        & .textblock-image {
-          opacity: 0;
-        }
-
-        &::after {
-          display: none;
-        }
-      }
-    }
-
-    & .content {
-      padding-top: 1.6rem;
-    }
+  .max-width {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 2rem;
   }
 
-  @media screen and (width > 599px) {
-    .page-section {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      gap: 3rem;
-    }
+  .heading-wrapper {
+    flex: 1 1 25%;
+    min-width: 10rem;
   }
 
-  .page-section {
-    margin-bottom: 0;
+  .content {
+    flex: 1 1 70%;
   }
 
-  img {
-    filter: grayscale(1);
-    margin: 1rem 0 1rem auto;
-    width: max(20vw, 350px);
+  blockquote {
+    margin-top: 3rem;
   }
 </style>

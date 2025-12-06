@@ -1,30 +1,73 @@
 ---
 const { title, subtitle } = Astro.props;
-import logo from "../assets/media/as-logo.png";
+import logo from "../assets/media/as-logo-white.png";
 import { Image } from "astro:assets";
 ---
 
-<header class="max-width">
-  <div class="h1-wrapper">
-    <h1>{title}</h1>
-    <p>{subtitle}</p>
+<header>
+  <div class="max-width">
+    <a href="/" class="logo-wrapper no-effect">
+      <div class="logo-img">
+        <Image src={logo} alt=" Adam Snape Creative Services Logo" loading="eager" width={50} densities={[1, 2]} />
+      </div>
+      <div class="logo-title display">Adam Snape</div>
+    </a>
+    <a href="/#contact-form" class="button">Book a Call</a>
   </div>
-  <a href="/" aria-label="adamsnape.com homepage" class="no-effect">
-    <Image src={logo} alt=" Adam Snape Creative Services Logo" loading="eager" width={80} densities={[1, 2]} />
-  </a>
-
-  <style>
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      margin: 2rem auto 5rem;
-      gap: 1.5rem;
-
-      & h1,
-      & p {
-        margin: 0 0;
-      }
-    }
-  </style>
 </header>
+
+<style>
+  header {
+    height: 5rem;
+    background: white;
+    border-bottom: 1px solid var(--clr-grey);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .max-width {
+    border-left: 1px solid var(--clr-grey);
+    border-right: 1px solid var(--clr-grey);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a.logo-wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 2.5rem;
+    text-decoration: none;
+    & > * {
+      border: 2px solid var(--clr-primary);
+    }
+  }
+
+  .logo-img {
+    background: var(--clr-primary);
+    padding: 0.5rem;
+    height: 100%;
+
+    & img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .logo-title {
+    display: none;
+  }
+
+  @media screen and (width > 500px) {
+    .logo-title {
+      padding: 0.25rem 1rem;
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      color: var(--clr-primary);
+      text-decoration: none;
+    }
+  }
+</style>

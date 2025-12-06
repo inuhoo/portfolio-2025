@@ -1,0 +1,44 @@
+---
+const { margin } = Astro.props;
+---
+
+<div class="max-width">
+  <div class="spacer" style={"margin-block:" + margin}></div>
+</div>
+
+<style>
+  .spacer {
+    margin: 0 auto;
+    height: 1px;
+    background-color: var(--clr-grey);
+    width: 85%;
+  }
+
+  .max-width {
+    position: relative;
+    padding: 0;
+    &::before,
+    &::after {
+      width: 1.5rem;
+      height: 1.5rem;
+      content: "";
+      display: block;
+      background-image: linear-gradient(var(--clr-grey)), linear-gradient(var(--clr-grey));
+      background-size:
+        1px 100%,
+        100% 1px;
+      background-position:
+        center center,
+        center center;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      translate: -50% -50%;
+    }
+
+    &::after {
+      left: 100%;
+    }
+  }
+</style>
