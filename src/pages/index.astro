@@ -20,7 +20,7 @@ import frothee from "../assets/media/logos/frothee.png";
 import kitsu from "../assets/media/logos/kitsu.png";
 import pedalpower from "../assets/media/logos/peddle-power.png";
 
-const meta_desc = "Freelance brand identity designer & web developer based in the UK. Bespoke brand strategy, logo & visual identity design, brochure and e-commerce websites for small independent businesses.";
+const meta_desc = "Freelance brand identity designer & web developer based in the Peak District, UK. Bespoke brand strategy, logo & visual identity design, and brochure and e-commerce websites for small independent businesses.";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -36,9 +36,9 @@ const meta_desc = "Freelance brand identity designer & web developer based in th
       A strategic brand changes that. With your purpose, personality, and positioning clearly defined, every interaction becomes more powerful. You communicate with confidence, attract the right audience, and build trust faster. Consistency turns into recognition, and recognition turns into revenue.
     </p>
     <p>I work with ambitious independent business owners to uncover the core attributes that make their brand meaningful and different. Through a focused brand strategy process, we define your message, sharpen your positioning, and identify the unique value you bring to the market.</p>
-    <p>From there, I translate these insights into a cohesive visual identity and design system that amplifies your presence and supports real business growth.</p>
+    <p>From there, I can translate these insights into a cohesive visual identity system and website that amplifies your presence and supports real business growth.</p>
     <p>With clarity and strategy behind your brand, you won't get lost in translation.</p>
-    <a href="#contact-form" class="button-primary">Get in touch</a>
+    <a href="#contact-section" class="button-primary">Get in touch</a>
   </TextBlock>
   <Spacer />
   <div class="max-width">
@@ -85,9 +85,11 @@ const meta_desc = "Freelance brand identity designer & web developer based in th
   </TextBlock>
 
   <Spacer />
-  <TextBlock title="Lets work together!">
-    <ContactForm />
-  </TextBlock>
+  <div id="contact-section">
+    <TextBlock title="Lets work together!">
+      <ContactForm />
+    </TextBlock>
+  </div>
   <div class="max-width">
     <blockquote>
       The alternative to good design is bad design. There is no such thing as no design.
@@ -96,6 +98,9 @@ const meta_desc = "Freelance brand identity designer & web developer based in th
   </div>
 
   <style>
+    #contact-section {
+      scroll-margin-top: 5rem;
+    }
     .skills-grid {
       column-span: all;
       display: grid;
