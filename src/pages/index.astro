@@ -8,6 +8,7 @@ import Spacer from "../components/Spacer.astro";
 import ContactForm from "../components/ContactForm.astro";
 import GlossaryEntry from "../components/GlossaryEntry.astro";
 import LogoItem from "../components/LogoItem.astro";
+import profile from "../assets/media/adam-snape_halftone.png";
 
 import { Image } from "astro:assets";
 import khoshicon from "../assets/media/khosh-icon.png";
@@ -29,12 +30,13 @@ const meta_desc = "Freelance brand identity designer & web developer based in th
 <Layout desc={meta_desc}>
   <Header />
   <Hero
-    title="Backed by solid brand strategy principals, I help businesses find their voice, and use it."
-    subtitle="Hi! I'm Adam, and I help inspiring independent business owners uncover the true personality and positioning of their brand, before transforming that clarity into strategically rooted visual identities and web design."
+    title="I work with ambitious founders to uncover their business' true voice."
+    subtitle="Clarifying your brand's personality and positioning for design solutions and websites that connect with your customers and convert."
     cta="Book your Call"
     cta_link="/#contact-section"
     cta2="Learn more"
-    cta2_link="/the-brand-process"
+    cta2_link="/brand-strategy"
+    img={profile}
   />
 
   <TextBlock title="Does your brand speak your buyer's language?">
@@ -44,7 +46,7 @@ const meta_desc = "Freelance brand identity designer & web developer based in th
     </p>
     <p>I work with ambitious independent business owners to uncover the core attributes that make their brand meaningful and different. Through a focused brand strategy process, we define your message, sharpen your positioning, and identify the unique value you bring to the market.</p>
     <p>From there, I can translate these insights into a cohesive visual identity system and website that amplifies your presence and supports real business growth.</p>
-    <p>With clarity and strategy behind your brand, you won't get lost in translation.</p>
+    <p><b>With Clarity&trade; and strategy behind your brand, you won't get lost in translation.</b></p>
     <a href="#contact-section" class="button-primary">Get in touch</a>
   </TextBlock>
   <Spacer />

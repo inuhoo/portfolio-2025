@@ -1,0 +1,134 @@
+---
+import { IconBrandAdobeIllustrator, IconBrandAdobePhotoshop, IconBrandAstro, IconBrandCss3, IconBrandFlipboard, IconBrandHtml5, IconBrandJavascript, IconBrandReact, IconBrandShopee } from "@tabler/icons-react";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import TextBlock from "../../components/TextBlock.astro";
+import Spacer from "../../components/Spacer.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import GlossaryEntry from "../../components/GlossaryEntry.astro";
+import LogoItem from "../../components/LogoItem.astro";
+
+import { Image } from "astro:assets";
+import header_img from "../../assets/media/geometric-hero.jpg";
+import khoshicon from "../../assets/media/khosh-icon.png";
+import kingswayicon from "../../assets/media/kingsway-icon.png";
+import snapesicon from "../../assets/media/snapes-logo.png";
+import socountiesicon from "../../assets/media/so-counties.png";
+import arc from "../../assets/media/logos/arc.png";
+import epc from "../../assets/media/logos/epc.png";
+import frothee from "../../assets/media/logos/frothee.png";
+import kitsu from "../../assets/media/logos/kitsu.png";
+import pedalpower from "../../assets/media/logos/peddle-power.png";
+
+const meta_desc = "Freelance brand identity designer & web developer based in the Peak District, UK. Bespoke brand strategy, logo & visual identity design, and brochure and e-commerce websites for small independent businesses.";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout desc={meta_desc}>
+  <Header />
+  <Hero
+    title="Brand strategy that gives your business clarity, direction, and confidence."
+    subtitle="Clarity™ is a structured, collaborative process that defines who you are, what you stand for, and how to communicate it. Essential for creating an effective brand, striking design, and business growth."
+    cta="Book your Call"
+    cta_link="/#contact-section"
+    img={header_img}
+  />
+  <div class="max-width">
+    <blockquote>Your brand is the single most important investment you can make in your business.” <cite>Steve Forbes</cite></blockquote>
+  </div>
+  <Spacer />
+  <TextBlock title="Do you need Brand Strategy?">
+    <p>
+      <b>Yes.</b> Without a strong brand strategy, even the greatest businesses (like yours) struggle to be seen, heard, and understood. When messaging wavers, visuals don&rsquo;t align, and your purpose isn&rsquo;t crystal-clear, potential customers get confused, and your competitors take the advantage.
+    </p>
+    <p>A thoughtful brand strategy changes everything. It gives your business a <span><b>clear voice</b></span>, a confident position in the market, and a roadmap for every customer interaction, helping you attract the right audience and build lasting trust.</p>
+    <p>
+      Working together I can guide you through why investing in brand strategy isn&rsquo;t just <i>nice to have,</i>&nbsp;it&rsquo;s essential. It transforms how your business connects, communicates, and grows, turning consistency into recognition, recognition into meaningful engagement, and
+      engagement into measurable results.&nbsp;
+    </p>
+    <a href="/#contact-section" class="button-primary">Get in touch</a>
+  </TextBlock>
+  <Spacer />
+
+  <TextBlock title="The Process">
+    <p><b>Clarity&trade;</b>, my brand strategy framework is designed to transform fragmented thinking into clarity. Each stage builds on the last, ensuring the result is a cohesive, actionable strategy that drives real business growth.</p>
+    <p>Over the course of a few hours, I can guide you through the process, offering additional insight and ensuring you come away with a clear understanding of your brand, and how to implement it.</p>
+    <hr />
+    <h3>1. The Brand Foundation</h3>
+    <p>Using proven frameworks like the Golden Circle, we uncover your brand&rsquo;s deeper purpose &mdash; the reason you exist beyond products or services.</p>
+    <span style="break-inside:avoid;display:block">
+      <h3>2. The Brand Position</h3>
+      <p>We identify who your brand is for and the unique space it can own in the market, ensuring you stand out by designing for your audience, not your competitors.</p>
+    </span>
+    <span style="break-inside:avoid;display:block">
+      <h3>3. The Brand Persona</h3>
+      <p>Your brand&rsquo;s character and voice are defined to create a consistent, recognisable presence that builds trust and avoids short-term, reactive decision-making.</p>
+    </span>
+    <span style="break-inside:avoid;display:block">
+      <h3>4. The Brand Essence</h3>
+      <p>By distilling our insights into a single statement we create the hook that allows our staff and customers alike to understand and connect with your brand.</p>
+    </span>
+    <span style="break-inside:avoid;display:block">
+      <h3>5. The Brand Scope</h3>
+      <p>Finally, we translate our learnings into a clear, prioritised roadmap &mdash; focusing only on initiatives that increase reach, revenue, and efficiency.</p>
+    </span>
+    <span style="break-inside:avoid;display:block">
+      <h3>The result:</h3>
+      <p>A clear, confident brand strategy that aligns your team, guides decision-making, and supports sustainable growth.</p>
+    </span>
+    <a href="/#contact-section" class="button-primary">Book your Session</a>
+  </TextBlock>
+  <Spacer />
+
+  <div class="max-width">
+    <blockquote>
+      Branding is the process of connecting good strategy with good creativity.
+      <cite> Marty Neumeier</cite>
+    </blockquote>
+  </div>
+</Layout>
+
+<style>
+  #contact-section {
+    scroll-margin-top: 5rem;
+  }
+  .skills-grid {
+    column-span: all;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+    gap: 1rem;
+  }
+
+  .skills-list {
+    margin: 2rem 0 0;
+    columns: 15ch;
+    column-span: all;
+    list-style: none;
+
+    & p {
+      margin: 0;
+      font-size: var(--fs-s);
+    }
+  }
+
+  .skills svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .tabler-icon-brand-flipboard {
+    rotate: 90deg;
+  }
+
+  .previous-work--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 2rem;
+    margin: auto auto 3rem;
+    column-span: all;
+  }
+</style>

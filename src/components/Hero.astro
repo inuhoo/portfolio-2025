@@ -1,5 +1,4 @@
 ---
-import profile from "../assets/media/adam-snape_halftone.png";
 import { Image } from "astro:assets";
 const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
 ---
@@ -7,12 +6,22 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
 <div class="hero">
   <div class="max-width">
     <h1>{title}</h1>
-    <div class="profile-img">
-      <Image src={profile} alt="Adam Snape Creative Services Logo" loading="eager" width={900} densities={[1, 2]} />
-    </div>
+    {
+      img && (
+        <div class="profile-img">
+          <Image src={img} alt="Adam Snape Creative Services Logo" loading="eager" width={900} densities={[1, 2]} />
+        </div>
+      )
+    }
     <p>{subtitle}</p>
     <div class="buttons">
-      <a href={cta2_link} class="button-secondary">{cta2}</a>
+      {
+        cta2_link && (
+          <a href={cta2_link} class="button-secondary">
+            {cta2}
+          </a>
+        )
+      }
       <a href={cta_link} class="button">{cta}</a>
     </div>
   </div>

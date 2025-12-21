@@ -98,6 +98,13 @@ main {
     flex-grow: 1;
 }
 
+hr {
+    margin: 1.5rem 0;
+    border: none;
+    height: 1px;
+    background-color: var(--clr-grey)
+}
+
 img,
 picture,
 video,
