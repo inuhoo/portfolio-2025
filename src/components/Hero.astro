@@ -100,6 +100,7 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
       margin-bottom: 0;
       display: grid;
       align-items: end;
+      margin-top: 1rem;
     }
     & .profile-img {
       grid-area: 1 / 1 / 4 / 2;
@@ -107,6 +108,7 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
       display: block;
       background-color: white;
       margin: 1rem 0 0;
+      aspect-ratio: 2;
 
       &::after {
         background-color: var(--clr-primary);
@@ -121,6 +123,7 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
         min-width: 100%;
         object-fit: cover;
         mix-blend-mode: darken;
+        aspect-ratio: 1.5;
       }
     }
     & p {
@@ -169,6 +172,7 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
 
     .hero .profile-img {
       margin: 0 0 max(-5vw, -3rem);
+      aspect-ratio: initial;
     }
   }
 </style>
