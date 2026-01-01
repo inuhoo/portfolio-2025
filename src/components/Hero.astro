@@ -1,30 +1,253 @@
 ---
 import { Image } from "astro:assets";
-const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
+import { marked } from "marked";
+const { title, subtitle, cta, cta_link, cta_microcopy, img } = Astro.props;
+const subtitle_html = marked.parse(subtitle);
 ---
 
 <div class="hero">
   <div class="max-width">
     <h1>{title}</h1>
     {
-      img && (
+      img ? (
         <div class="profile-img">
           <Image src={img} alt="Adam Snape Creative Services Logo" loading="eager" width={900} densities={[1, 2]} />
         </div>
+      ) : (
+        <div class="canvas-wrapper profile-img">
+          <canvas id="hero-canvas" />
+        </div>
       )
     }
-    <p>{subtitle}</p>
+    <div set:html={subtitle_html} />
     <div class="buttons">
-      {
-        cta2_link && (
-          <a href={cta2_link} class="button-secondary">
-            {cta2}
-          </a>
-        )
-      }
-      <a href={cta_link} class="button">{cta}</a>
+      <a href={cta_link} class="button"
+        >{cta}
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l14 0"></path><path d="M15 16l4 -4"></path><path d="M15 8l4 4"></path></svg
+        ></a
+      >
+      {cta_microcopy && <span style="width:100%;display:block;margin-inline:0.5rem;font-size:var(--fs-s);font-style: italic;">{cta_microcopy}</span>}
     </div>
   </div>
+
+  <script>
+    const canvas = document.getElementById("hero-canvas") as HTMLCanvasElement;
+    if (canvas) {
+      const ctx = canvas.getContext("2d")!;
+      let animationId: number;
+      let particles: Particle[] = [];
+      const PARTICLE_COUNT = 800;
+      const MOUSE_RADIUS = 50;
+      const RETURN_SPEED = 0.05;
+      const WAVE_SPEED = 0.02; // Control speed of propagation
+      const FORMATION_SPEED = 0.01; // Slower formation
+
+      let width = canvas.offsetWidth;
+      let height = canvas.offsetHeight;
+
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+
+      let mouse: { x: number | null; y: number | null } = { x: null, y: null };
+      let wavePhase = 0;
+
+      class Particle {
+        x: number;
+        y: number;
+        vx: number;
+        vy: number;
+        baseX: number;
+        baseY: number;
+        size: number;
+        density: number;
+        color: string;
+        state: "static" | "forming" | "formed";
+        formationDelay: number;
+        index: number;
+        offsetY: number;
+        repulsionFactor: number;
+        radiusFactor: number;
+        scatterDeviation: number;
+
+        constructor(index: number) {
+          this.index = index;
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = 0;
+          this.vy = 0;
+          this.baseX = this.x;
+          this.baseY = this.y;
+          this.size = Math.random() * 1.5 + 0.5;
+          this.density = Math.random() * 30 + 1;
+          this.color = `rgba(0, 0, 0, ${Math.random() * 0.5 + 0.2})`;
+          this.state = "static";
+          this.formationDelay = Math.random() * 100;
+          // Random offset for the "static" look, fixed for the particle's lifetime
+          this.offsetY = (Math.random() - 0.5) * 40;
+          // Vary how strongly each particle reacts to the mouse
+          this.repulsionFactor = Math.random() * 2 + 0.5;
+          // Vary the distance at which they start reacting to break the perfect circle
+          this.radiusFactor = Math.random() * 0.5 + 0.8;
+          // Fixed deviation for fluid scattering (avoids jittering)
+          this.scatterDeviation = (Math.random() - 0.5) * 1.2;
+        }
+
+        calculateTarget(phase: number) {
+          const total = PARTICLE_COUNT;
+          const margin = width * 0.1;
+          const waveWidth = width - 2 * margin;
+          const x = margin + (this.index / total) * waveWidth;
+
+          const amplitude = height * 0.2;
+          const frequency = 0.025;
+          const centerY = height / 2;
+
+          // Add phase to the sine calculation for movement, plus the fixed static offset
+          const y = centerY + Math.sin(x * frequency + phase) * amplitude + this.offsetY;
+
+          return { x, y };
+        }
+
+        update() {
+          // Always calculate the current target position based on phase
+          const target = this.calculateTarget(wavePhase);
+          this.baseX = target.x;
+          this.baseY = target.y;
+
+          if (this.state === "forming") {
+            if (this.formationDelay > 0) {
+              this.formationDelay--;
+              this.x += (Math.random() - 0.5) * 4;
+              this.y += (Math.random() - 0.5) * 4;
+            } else {
+              let dx = this.baseX - this.x;
+              let dy = this.baseY - this.y;
+              this.x += dx * FORMATION_SPEED;
+              this.y += dy * FORMATION_SPEED;
+
+              if (Math.abs(dx) < 1 && Math.abs(dy) < 1) {
+                this.state = "formed";
+              }
+            }
+          } else if (this.state === "formed") {
+            if (mouse.x != null && mouse.y != null) {
+              let dx = mouse.x - this.x;
+              let dy = mouse.y - this.y;
+              let distance = Math.sqrt(dx * dx + dy * dy);
+
+              // Variable effective radius per particle
+              const effectiveRadius = MOUSE_RADIUS * this.radiusFactor;
+
+              if (distance < effectiveRadius) {
+                const maxDistance = effectiveRadius;
+                const force = (maxDistance - distance) / maxDistance;
+
+                // Calculate angle and apply fixed scatter deviation
+                const angle = Math.atan2(dy, dx);
+
+                const forceDirectionX = Math.cos(angle + this.scatterDeviation);
+                const forceDirectionY = Math.sin(angle + this.scatterDeviation);
+
+                // Apply specific repulsion factor
+                const directionX = forceDirectionX * force * this.density * this.repulsionFactor;
+                const directionY = forceDirectionY * force * this.density * this.repulsionFactor;
+
+                this.x -= directionX;
+                this.y -= directionY;
+
+                // Drag the particle with the wave (moving left)
+                // Wave speed is ~0.8px/frame (0.02 / 0.025). We pull slightly faster to make it visible.
+                // Scale by force to avoid vibration at the edge
+                this.x -= 2 * force;
+              } else {
+                if (this.x !== this.baseX) {
+                  let dx = this.x - this.baseX;
+                  this.x -= dx * RETURN_SPEED;
+                }
+                if (this.y !== this.baseY) {
+                  let dy = this.y - this.baseY;
+                  this.y -= dy * RETURN_SPEED;
+                }
+              }
+            } else {
+              if (this.x !== this.baseX) {
+                let dx = this.x - this.baseX;
+                this.x -= dx * RETURN_SPEED;
+              }
+              if (this.y !== this.baseY) {
+                let dy = this.y - this.baseY;
+                this.y -= dy * RETURN_SPEED;
+              }
+            }
+          }
+        }
+
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        particles = [];
+        width = canvas.offsetWidth;
+        height = canvas.offsetHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+        wavePhase = 0;
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          let p = new Particle(i);
+          let target = p.calculateTarget(wavePhase);
+          p.baseX = target.x;
+          p.baseY = target.y;
+          particles.push(p);
+        }
+
+        setTimeout(() => {
+          particles.forEach((p) => (p.state = "forming"));
+        }, 1000);
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Increment phase
+        wavePhase += WAVE_SPEED;
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+        animationId = requestAnimationFrame(animate);
+      }
+
+      init();
+      animate();
+
+      window.addEventListener("resize", () => {
+        init();
+      });
+
+      canvas.addEventListener("mousemove", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      canvas.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+    }
+  </script>
 </div>
 
 <style>
@@ -102,7 +325,8 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
       align-items: end;
       margin-top: 1rem;
     }
-    & .profile-img {
+    & .profile-img,
+    & .canvas-wrapper {
       grid-area: 1 / 1 / 4 / 2;
       position: relative;
       display: block;
@@ -117,6 +341,7 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
         position: absolute;
         display: block;
         inset: 0;
+        pointer-events: none;
       }
       & img {
         min-height: 100%;
@@ -165,8 +390,8 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
     .hero .max-width {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 2fr 1.5fr 1.25fr;
-      grid-column-gap: 2rem;
+      /* grid-template-rows: 2fr 1.5fr 1.25fr; */
+      grid-column-gap: 1rem;
       grid-row-gap: 0px;
     }
 
@@ -174,5 +399,10 @@ const { title, subtitle, cta, cta_link, cta2, cta2_link, img } = Astro.props;
       margin: 0 0 max(-5vw, -3rem);
       aspect-ratio: initial;
     }
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
   }
 </style>

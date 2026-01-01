@@ -183,8 +183,12 @@ h4,
     font-size: var(--fs-h3);
 }
 
-small {
-    font-size: var(--fs-xs);
+small,
+.small {
+    font-size: var(--fs-s);
+    display: block;
+    width: 100%;
+    margin-inline: .5rem;
 }
 
 .rtf,
@@ -294,7 +298,9 @@ cite {
     position: relative;
     text-decoration: none;
     margin: 0.5em;
-    display: inline-block;
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
     cursor: pointer;
     background-color: var(--clr-secondary);
     border: solid 2px var(--clr-secondary);
@@ -317,7 +323,7 @@ cite {
         top: 0;
         left: 0;
         z-index: -1;
-        transition: transform ease-in 0.25s;
+        transition: transform ease-in 0.125s;
         transform: translate(-110%, 0%);
         background-color: var(--clr-white);
     }
