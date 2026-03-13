@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import TextBlock from "../components/TextBlock.astro";
 import CvExperience from "../components/CvExperience.astro";
 import avatar from "../assets/media/avatar.jpg";
@@ -9,7 +8,6 @@ const meta_desc = "Curriculum vitae of Adam Snape, a freelance web and graphic d
 ---
 
 <Layout title="Curriculum Vitae" desc={meta_desc}>
-  <Header title="Curriculum Vitae" subtitle="Adam Snape | Design, Developer and E-commerce Specialist" />
   <TextBlock title="Profile Summary" img={avatar}>
     <p>
       A motivated and seasoned e-commerce specialist and frontend developer with a strong track record in the retail sector. With over 12 months experience working as a dedicated developer in fashion retail, I also have another 4+ years of experience in directing and executing growth strategies for
@@ -131,9 +129,9 @@ const meta_desc = "Curriculum vitae of Adam Snape, a freelance web and graphic d
     </ul>
   </TextBlock>
   <TextBlock title="A Quote">
-    <blockquote>
+    <custom-blockquote>
       Design is everything. Everything!
       <cite>Paul Rand</cite>
-    </blockquote>
+    </custom-blockquote>
   </TextBlock>
 </Layout>

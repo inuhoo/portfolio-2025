@@ -119,6 +119,12 @@ svg {
     display: none;
 }
 
+@layer reset {
+    ::view-transition-group(header) {
+        z-index: 100 !important;
+    }
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -247,7 +253,7 @@ a {
 
 }
 
-blockquote {
+custom-blockquote {
     font-size: var(--fs-h2);
     font-style: italic;
     line-height: 1;
@@ -257,6 +263,7 @@ blockquote {
     max-width: 30rem;
     font-family: var(--ff-heading);
     text-wrap: pretty;
+    display: block;
 
     &::before {
         content: "\"";
@@ -345,6 +352,50 @@ cite {
 
 .button-secondary {
     background-color: transparent;
+}
+
+/* animated elements */
+
+.wave {
+    display: inline-block;
+    rotate: -35deg;
+    transform-origin: 50% 100%;
+    /* Pivot slightly towards the wrist for a natural hand wave */
+}
+
+.wave.animated,
+h1:hover .wave {
+    animation: wave 1.5s ease-in-out forwards;
+}
+
+.wave.animated {
+    animation-delay: 1s;
+}
+
+@keyframes wave {
+    0% {
+        rotate: -35deg;
+    }
+
+    20% {
+        rotate: 10deg;
+    }
+
+    40% {
+        rotate: -40deg;
+    }
+
+    60% {
+        rotate: 0deg;
+    }
+
+    80% {
+        rotate: -50deg;
+    }
+
+    100% {
+        rotate: -35deg;
+    }
 }
 
 /* footer */

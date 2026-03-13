@@ -4,7 +4,7 @@ import logo from "../assets/media/as-logo-white.png";
 import { Image } from "astro:assets";
 ---
 
-<header>
+<header transition:persist="header">
   <div class="max-width">
     <a href="/" class="logo-wrapper no-effect">
       <div class="logo-img">
@@ -12,7 +12,7 @@ import { Image } from "astro:assets";
       </div>
       <div class="logo-title display">Adam Snape</div>
     </a>
-    <a href="/#contact-section" class="button">Start with Clarity</a>
+    <!-- <a href="/#contact-section" class="button">Start with Clarity</a> -->
   </div>
 </header>
 
@@ -23,7 +23,7 @@ import { Image } from "astro:assets";
     border-bottom: 1px solid var(--clr-grey);
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 99;
   }
 
   .max-width {

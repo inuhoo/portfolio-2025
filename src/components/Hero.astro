@@ -7,7 +7,7 @@ const subtitle_html = marked.parse(subtitle);
 
 <div class="hero">
   <div class="max-width">
-    <h1>{title}</h1>
+    <h1 set:html={title} />
     {
       img ? (
         <div class="profile-img">
@@ -20,15 +20,26 @@ const subtitle_html = marked.parse(subtitle);
       )
     }
     <div set:html={subtitle_html} />
-    <div class="buttons">
-      <a href={cta_link} class="button"
-        >{cta}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"
-          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l14 0"></path><path d="M15 16l4 -4"></path><path d="M15 8l4 4"></path></svg
-        ></a
-      >
-      {cta_microcopy && <span style="width:100%;display:block;margin-inline:0.5rem;font-size:var(--fs-s);font-style: italic;">{cta_microcopy}</span>}
-    </div>
+    {
+      cta && cta_link ? (
+        <div class="buttons">
+          <a href={cta_link} class="button">
+            {cta}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
+              <>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l14 0" />
+                <path d="M15 16l4 -4" />
+                <path d="M15 8l4 4" />
+              </>
+            </svg>
+          </a>
+          {cta_microcopy && <span style="width:100%;display:block;margin-inline:0.5rem;font-size:var(--fs-s);font-style: italic;">{cta_microcopy}</span>}
+        </div>
+      ) : (
+        ""
+      )
+    }
   </div>
 
   <script>
@@ -321,10 +332,12 @@ const subtitle_html = marked.parse(subtitle);
     & h1 {
       grid-area: 1 / 2 / 2 / 3;
       margin-bottom: 0;
-      display: grid;
+      display: flex;
+      gap: 1.5rem;
       align-items: end;
       margin-top: 1rem;
     }
+
     & .profile-img,
     & .canvas-wrapper {
       grid-area: 1 / 1 / 4 / 2;

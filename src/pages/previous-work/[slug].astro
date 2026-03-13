@@ -1,31 +1,29 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
 import TextBlock from "../../components/TextBlock.astro";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 export async function getStaticPaths() {
   const items = await getCollection("previous-work");
   return items.map((item) => ({
-    params: { slug: item.slug },
+    params: { slug: item.id },
     props: { item },
   }));
 }
 const { item } = Astro.props;
 const { title, about, tags } = item.data;
-const { Content } = await item.render();
-// Load all images in the previous-work folder
+const { Content } = await render(item);
 const images = import.meta.glob("../../content/previous-work/*.{jpg,png,jpeg}", {
   eager: true,
 });
 
 // Resolve the correct image based on slug
-const image = images[`../../content/previous-work/${item.slug}.jpg`];
+const image = images[`../../content/previous-work/${item.id}.jpg`];
 ---
 
 <Layout title={title} desc={title + " Case Study: A detailed look at the project goals, design process, and outcomes."}>
-  <Header />
   <div class="case-study max-width" style="margin-top:-3rem;">
     <TextBlock title={title}>
       <div set:html={about} />
@@ -45,7 +43,7 @@ const image = images[`../../content/previous-work/${item.slug}.jpg`];
     <TextBlock title="project goals">
       <Content />
     </TextBlock>
-    {image && <Image src={image.default} alt={title + " visuals"} />}
+    {image && <Image src={(image as { default: ImageMetadata }).default} alt={title + " visuals"} />}
   </div>
 </Layout>
 

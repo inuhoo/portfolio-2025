@@ -4,6 +4,8 @@ import Footer from "../components/Footer.astro";
 import Schema from "../components/Schema.astro";
 import OgTags from "../components/OgTags.astro";
 import PostHog from "../components/posthog.astro";
+// import { ClientRouter } from "astro:transitions";
+import Header from "../components/Header.astro";
 const { title, desc } = Astro.props;
 ---
 
@@ -24,12 +26,23 @@ const { title, desc } = Astro.props;
     <OgTags />
     <Schema />
     <PostHog />
+    <!-- <ClientRouter /> -->
+    <script src="../scripts/custom-blockquote.js"></script>
   </head>
   <body>
-    <main>
+    <Header />
+    <main transition:animate="fade">
       <slot />
     </main>
     <Footer />
     <script src="https://embed.small.chat/T0A58AXEG8ZC0A4P1X6CUB.js" async></script>
   </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".wave").forEach((el) => {
+      el.classList.add("animated");
+    });
+  });
+</script>

@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import TextBlock from "../components/TextBlock.astro";
 import GlossaryEntry from "../components/GlossaryEntry.astro";
 
@@ -9,16 +8,15 @@ const meta_desc = "A clear, no-nonsense glossary that breaks down common design 
 
 <Layout title="Design Glossary" desc={meta_desc}>
   <!-- header -->
-  <Header title="Glossary" subtitle="Jargon. Busted." />
   <TextBlock title="intro">
     <p>
       The clarity of your communication is directly linked to the success of any project or collaboration. <br />
     </p>
     <p>This reference is growing list of definitions to common design and branding terms.</p>
-    <blockquote>
+    <custom-blockquote>
       It’s a lack of clarity that creates chaos and frustration. Those emotions are poison to any living goal.
       <cite>Steve Maraboli</cite>
-    </blockquote>
+    </custom-blockquote>
   </TextBlock>
 
   <TextBlock title="B">

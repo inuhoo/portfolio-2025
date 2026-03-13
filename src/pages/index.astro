@@ -1,7 +1,6 @@
 ---
 import { IconBrandAdobeIllustrator, IconBrandAdobePhotoshop, IconBrandAstro, IconBrandCss3, IconBrandFlipboard, IconBrandHtml5, IconBrandJavascript, IconBrandReact, IconBrandShopee } from "@tabler/icons-react";
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import TextBlock from "../components/TextBlock.astro";
 import Spacer from "../components/Spacer.astro";
@@ -28,27 +27,26 @@ const meta_desc = "Define your brand’s language and find your voice. I make sm
 ---
 
 <Layout desc={meta_desc}>
-  <Header />
   <Hero
-    title="Learn your brand's language and find your voice."
-    subtitle="Most businesses just want a logo, you want more clients and bigger contracts. I’m a brand strategist and designer helping independent heavyweights speak their buyer's language and get heard."
-    cta="Claim your first 15 minutes of Clarity"
-    cta_link="https://calendly.com/adamsnape/free-clarity-call"
-    cta_microcopy="Free 15-minute diagnostic call. No jargon. No obligation."
+    title="Hey, I'm Adam. <span class='wave'>🖐</span>"
+    subtitle="I'm a web designer, developer, and conversion rate optimisation specialist with over 6 years of full time e-commerce experience. I enjoy working with small online retailers to improve their users experience and increase sales."
+    cta="Contact me"
+    cta_link="#contact-section"
+    cta_microcopy=""
     img={profile}
   />
 
-  <TextBlock title="Speak with the authority your expertise deserves.">
+  <!-- <TextBlock title="Speak with the authority your expertise deserves.">
     <p>When a prospect finds you for the first time, they should understand your authority instantly. You shouldn’t have to prove you’re a safe pair of hands; your brand should do that for you.</p>
     <p>Looking for someone who just make things 'look pretty'? You are in the wrong place, using result-driven strategy I build the branding backbones that allow independent professionals to punch like heavyweights.</p>
     <p><b>With Clarity&trade; and strategy behind your brand, you won't get lost in translation.</b></p>
     <a href="#contact-section" class="button-primary">Start with Clarity</a>
     <small>Book your free 15 minute call and discuss <i>your</i> goals, not my sales.</small>
-  </TextBlock>
-  <Spacer />
+  </TextBlock> -->
   <div class="max-width">
-    <blockquote>Thinking about design is hard, but not thinking about it can be disastrous <cite> Ralph Caplan</cite></blockquote>
+    <custom-blockquote>Thinking about design is hard, but not thinking about it can be disastrous <cite> Ralph Caplan</cite></custom-blockquote>
   </div>
+  <!--
   <Spacer />
   <TextBlock title="Previous works">
     <div class="previous-work--grid">
@@ -62,7 +60,7 @@ const meta_desc = "Define your brand’s language and find your voice. I make sm
       <LogoItem title="Pedal Power" img={pedalpower} index="8" />
       <LogoItem title="Khosh Clothing" img={khoshicon} index="9" link="/previous-work/khosh-clothing" />
     </div>
-  </TextBlock>
+  </TextBlock> -->
   <Spacer />
   <TextBlock title="Technical skills">
     <div class="skills-grid">
@@ -85,21 +83,21 @@ const meta_desc = "Define your brand’s language and find your voice. I make sm
       <li>6/ React</li>
       <li>7/ Astro</li>
       <li>8/ StrAPI</li>
-      <li>8/ Shopify</li>
+      <li>9/ Shopify</li>
     </ul>
   </TextBlock>
 
   <Spacer />
   <div id="contact-section">
-    <TextBlock title="Lets work together!">
+    <TextBlock title="Get in Touch,">
       <ContactForm />
     </TextBlock>
   </div>
   <div class="max-width">
-    <blockquote>
+    <custom-blockquote>
       The alternative to good design is bad design. There is no such thing as no design.
       <cite>Adam Judge</cite>
-    </blockquote>
+    </custom-blockquote>
   </div>
 
   <style>

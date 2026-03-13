@@ -2,20 +2,94 @@
 const { title } = Astro.props;
 ---
 
-<div class="page-section max-width">
-  <div class="heading-wrapper">
-    <h2 class="heading">{title}</h2>
+<text-block>
+  <div class="page-section max-width">
+    <div class="heading-wrapper">
+      <h2 class="heading">{title}</h2>
+    </div>
+    <div class="content rtf">
+      <slot />
+    </div>
   </div>
-  <div class="content rtf">
-    <slot />
-  </div>
-</div>
+</text-block>
+
+<script>
+  class TextBlockElement extends HTMLElement {
+    observer: IntersectionObserver | null = null;
+
+    connectedCallback() {
+      if (this.dataset.initialized) return;
+      this.dataset.initialized = "true";
+
+      const rect = this.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        this.classList.add("animate");
+      }
+
+      // Inject styles once
+      if (!document.getElementById("text-block-styles")) {
+        const style = document.createElement("style");
+        style.id = "text-block-styles";
+        style.textContent = `
+          text-block:not([data-initialized="true"]) {
+            opacity: 0;
+            visibility: hidden;
+          }
+          text-block[data-initialized="true"] {
+            opacity: 0;
+            visibility: visible;
+            transform: translateY(2rem);
+            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: block; /* Ensure it behaves like a block container */
+          }
+          text-block.animate {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        `;
+        document.head.appendChild(style);
+      }
+
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.classList.add("animate");
+              if (this.observer) this.observer.unobserve(this);
+            }
+          });
+        },
+        {
+          rootMargin: "-150px 0px", // Trigger 150px inside the viewport
+          threshold: 0,
+        },
+      );
+
+      this.observer.observe(this);
+    }
+
+    disconnectedCallback() {
+      if (this.observer) {
+        this.observer.disconnect();
+      }
+    }
+  }
+
+  // Ensure it's not redefined during HMR or multiple inclusions
+  if (!customElements.get("text-block")) {
+    customElements.define("text-block", TextBlockElement);
+  }
+</script>
 
 <style>
   .max-width {
     display: flex;
     flex-wrap: wrap;
     gap: 0 2rem;
+  }
+
+  .text-block {
+    scroll-margin-top: -50px;
   }
 
   .heading-wrapper {
@@ -27,7 +101,8 @@ const { title } = Astro.props;
     flex: 1 1 70%;
   }
 
-  blockquote {
+  /* Note: Assuming this was intended to target your other element */
+  :global(custom-blockquote) {
     margin-top: 3rem;
   }
 </style>
