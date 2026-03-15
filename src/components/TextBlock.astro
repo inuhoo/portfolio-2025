@@ -22,7 +22,8 @@ const { title } = Astro.props;
       this.dataset.initialized = "true";
 
       const rect = this.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
+      const isAlreadyVisible = rect.top < window.innerHeight;
+      if (isAlreadyVisible) {
         this.classList.add("animate");
       }
 
@@ -49,23 +50,24 @@ const { title } = Astro.props;
         `;
         document.head.appendChild(style);
       }
+      if (!isAlreadyVisible) {
+        this.observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                this.classList.add("animate");
+                if (this.observer) this.observer.unobserve(this);
+              }
+            });
+          },
+          {
+            rootMargin: "-150px 0px", // Trigger 150px inside the viewport
+            threshold: 0,
+          },
+        );
 
-      this.observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              this.classList.add("animate");
-              if (this.observer) this.observer.unobserve(this);
-            }
-          });
-        },
-        {
-          rootMargin: "-150px 0px", // Trigger 150px inside the viewport
-          threshold: 0,
-        },
-      );
-
-      this.observer.observe(this);
+        this.observer.observe(this);
+      }
     }
 
     disconnectedCallback() {
